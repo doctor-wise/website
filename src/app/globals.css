@@ -1,0 +1,635 @@
+@import 'tailwindcss';
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+
+  /* Base Color Palettes for Tailwind */
+  
+  /* Brand Colors - Primary Blue Palette */
+  --color-brand-25: #f2f9ff;
+  --color-brand-50: #cce5ff;
+  --color-brand-100: #a6d2ff;
+  --color-brand-200: #80bfff;
+  --color-brand-300: #59acff;
+  --color-brand-400: #3399ff;
+  --color-brand-500: #0072e5;
+  --color-brand-600: #005fbf;
+  --color-brand-700: #004c99;
+  --color-brand-800: #003973;
+  --color-brand-900: #00264c;
+  --color-brand-950: #001933;
+
+  /* Gray Colors - Light Mode */
+  --color-gray-25: #fdfdfd;
+  --color-gray-50: #fafafa;
+  --color-gray-100: #f5f5f5;
+  --color-gray-200: #e9eaeb;
+  --color-gray-300: #d5d7da;
+  --color-gray-400: #a4a7ae;
+  --color-gray-500: #717680;
+  --color-gray-600: #535862;
+  --color-gray-700: #414651;
+  --color-gray-800: #252b37;
+  --color-gray-900: #181d27;
+  --color-gray-950: #0a0d12;
+
+  /* Error Colors - Red Palette */
+  --color-error-25: #fffbfa;
+  --color-error-50: #fef3f2;
+  --color-error-100: #fee4e2;
+  --color-error-200: #fecdca;
+  --color-error-300: #fda29b;
+  --color-error-400: #f97066;
+  --color-error-500: #f04438;
+  --color-error-600: #d92d20;
+  --color-error-700: #b42318;
+  --color-error-800: #912018;
+  --color-error-900: #7a271a;
+  --color-error-950: #55160c;
+
+  /* Warning Colors - Orange Palette */
+  --color-warning-25: #fffcf5;
+  --color-warning-50: #fffaeb;
+  --color-warning-100: #fef0c7;
+  --color-warning-200: #fedf89;
+  --color-warning-300: #fec84b;
+  --color-warning-400: #fdb022;
+  --color-warning-500: #f79009;
+  --color-warning-600: #dc6803;
+  --color-warning-700: #b54708;
+  --color-warning-800: #93370d;
+  --color-warning-900: #7a2e0e;
+  --color-warning-950: #4e1d09;
+
+  /* Success Colors - Green Palette */
+  --color-success-25: #f6fef9;
+  --color-success-50: #ecfdf3;
+  --color-success-100: #dcfae6;
+  --color-success-200: #abefc6;
+  --color-success-300: #75e0a7;
+  --color-success-400: #47cd89;
+  --color-success-500: #17b26a;
+  --color-success-600: #079455;
+  --color-success-700: #067647;
+  --color-success-800: #085d3a;
+  --color-success-900: #074d31;
+  --color-success-950: #053321;
+
+  /* Base Colors */
+  --color-black: #000000;
+  --color-white: #ffffff;
+  --color-transparent: #ffffff00;
+
+  /* Semantic Color Tokens */
+  
+  /* Text Colors - Semantic Hierarchy */
+  --color-text-primary: var(--color-gray-800);
+  --color-text-secondary: var(--color-gray-700);
+  --color-text-tertiary: var(--color-gray-600);
+  --color-text-quaternary: var(--color-gray-500);
+  
+  /* Text Colors - Brand Variants */
+  --color-text-brand-primary: var(--color-brand-900);
+  --color-text-brand-secondary: var(--color-brand-700);
+  --color-text-brand-tertiary: var(--color-brand-600);
+  --color-text-brand-tertiary-alt: var(--color-brand-500);
+  
+  /* Text Colors - Contextual (On Brand Backgrounds) */
+  --color-text-primary-on-brand: var(--color-white);
+  --color-text-secondary-on-brand: var(--color-brand-200);
+  --color-text-tertiary-on-brand: var(--color-brand-200);
+  --color-text-quaternary-on-brand: var(--color-brand-300);
+  
+  /* Text Colors - Interactive States */
+  --color-text-secondary-hover: var(--color-gray-800);
+  --color-text-tertiary-hover: var(--color-gray-700);
+  --color-text-brand-secondary-hover: var(--color-brand-800);
+  
+  /* Text Colors - Functional States */
+  --color-text-disabled: var(--color-gray-500);
+  --color-text-placeholder: var(--color-gray-500);
+  --color-text-placeholder-subtle: var(--color-gray-300);
+  --color-text-white: var(--color-white);
+  
+  /* Text Colors - Status/Semantic */
+  --color-text-error-primary: var(--color-error-600);
+  --color-text-warning-primary: var(--color-warning-600);
+  --color-text-success-primary: var(--color-success-600);
+
+  /* Border Colors - Basic Hierarchy */
+  --color-border-primary: var(--color-gray-300);
+  --color-border-secondary: var(--color-gray-200);
+  --color-border-tertiary: var(--color-gray-100);
+
+  /* Border Colors - Brand & States */
+  --color-border-brand: var(--color-brand-500);
+  --color-border-brand-alt: var(--color-brand-600);
+  --color-border-error: var(--color-error-500);
+  --color-border-error-subtle: var(--color-error-300);
+
+  /* Border Colors - Functional States */
+  --color-border-disabled: var(--color-gray-300);
+  --color-border-disabled-subtle: var(--color-gray-200);
+
+  /* Background Colors - Basic Hierarchy */
+  --color-bg-primary: var(--color-white);
+  --color-bg-primary-alt: var(--color-gray-25);
+  --color-bg-secondary: var(--color-gray-50);
+  --color-bg-secondary-alt: var(--color-gray-50);
+  --color-bg-secondary-subtle: var(--color-gray-25);
+  --color-bg-tertiary: var(--color-gray-100);
+  --color-bg-quaternary: var(--color-gray-200);
+
+  /* Background Colors - Interactive States */
+  --color-bg-primary-hover: var(--color-gray-50);
+  --color-bg-secondary-hover: var(--color-gray-100);
+  --color-bg-active: var(--color-gray-50);
+  --color-bg-disabled: var(--color-gray-100);
+  --color-bg-disabled-subtle: var(--color-gray-50);
+
+  /* Background Colors - Brand */
+  --color-bg-brand-primary: var(--color-brand-50);
+  --color-bg-brand-primary-alt: var(--color-brand-50);
+  --color-bg-brand-secondary: var(--color-brand-100);
+  --color-bg-brand-solid: var(--color-brand-500);
+  --color-bg-brand-solid-hover: var(--color-brand-600);
+  --color-bg-brand-section: var(--color-brand-700);
+  --color-bg-brand-section-subtle: var(--color-brand-700);
+
+  /* Background Colors - Semantic States */
+  --color-bg-error-primary: var(--color-error-50);
+  --color-bg-error-secondary: var(--color-error-100);
+  --color-bg-error-solid: var(--color-error-600);
+  --color-bg-error-solid-hover: var(--color-error-700);
+  --color-bg-warning-primary: var(--color-warning-50);
+  --color-bg-warning-secondary: var(--color-warning-100);
+  --color-bg-warning-solid: var(--color-warning-600);
+  --color-bg-success-primary: var(--color-success-50);
+  --color-bg-success-secondary: var(--color-success-100);
+  --color-bg-success-solid: var(--color-success-600);
+
+  /* Background Colors - Special */
+  --color-bg-primary-solid: var(--color-gray-950);
+  --color-bg-secondary-solid: var(--color-gray-600);
+  --color-bg-overlay: var(--color-gray-950);
+
+  /* Foreground Colors - Basic Hierarchy */
+  --color-fg-primary: var(--color-gray-800);
+  --color-fg-secondary: var(--color-gray-700);
+  --color-fg-tertiary: var(--color-gray-600);
+  --color-fg-quaternary: var(--color-gray-400);
+
+  /* Foreground Colors - Interactive States */
+  --color-fg-secondary-hover: var(--color-gray-800);
+  --color-fg-tertiary-hover: var(--color-gray-700);
+  --color-fg-quaternary-hover: var(--color-gray-500);
+
+  /* Foreground Colors - Functional */
+  --color-fg-white: var(--color-white);
+  --color-fg-disabled: var(--color-gray-400);
+  --color-fg-disabled-subtle: var(--color-gray-300);
+
+  /* Foreground Colors - Brand */
+  --color-fg-brand-primary: var(--color-brand-600);
+  --color-fg-brand-primary-alt: var(--color-brand-600);
+  --color-fg-brand-secondary: var(--color-brand-500);
+  --color-fg-brand-secondary-alt: var(--color-brand-500);
+
+  /* Foreground Colors - Semantic States */
+  --color-fg-error-primary: var(--color-error-600);
+  --color-fg-error-secondary: var(--color-error-500);
+  --color-fg-warning-primary: var(--color-warning-600);
+  --color-fg-warning-secondary: var(--color-warning-500);
+  --color-fg-success-primary: var(--color-success-600);
+  --color-fg-success-secondary: var(--color-success-500);
+
+  /* Typography - Font Families */
+  --font-family-display: Inter, ui-sans-serif, system-ui, sans-serif;
+  --font-family-body: Inter, ui-sans-serif, system-ui, sans-serif;
+
+  /* Typography - Font Weights */
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  /* Typography - Display Sizes (72px - 24px) */
+  --font-size-display-2xl: 72px;
+  --line-height-display-2xl: 90px;
+  --letter-spacing-display-2xl: -0.02em;
+
+  --font-size-display-xl: 60px;
+  --line-height-display-xl: 72px;
+  --letter-spacing-display-xl: -0.02em;
+
+  --font-size-display-lg: 48px;
+  --line-height-display-lg: 60px;
+  --letter-spacing-display-lg: -0.02em;
+
+  --font-size-display-md: 36px;
+  --line-height-display-md: 44px;
+  --letter-spacing-display-md: -0.02em;
+
+  --font-size-display-sm: 30px;
+  --line-height-display-sm: 38px;
+  --letter-spacing-display-sm: normal;
+
+  --font-size-display-xs: 24px;
+  --line-height-display-xs: 32px;
+  --letter-spacing-display-xs: normal;
+
+  /* Typography - Text Sizes (20px - 12px) */
+  --font-size-text-xl: 20px;
+  --line-height-text-xl: 30px;
+  --letter-spacing-text-xl: normal;
+
+  --font-size-text-lg: 18px;
+  --line-height-text-lg: 28px;
+  --letter-spacing-text-lg: normal;
+
+  --font-size-text-md: 16px;
+  --line-height-text-md: 24px;
+  --letter-spacing-text-md: normal;
+
+  --font-size-text-sm: 14px;
+  --line-height-text-sm: 20px;
+  --letter-spacing-text-sm: normal;
+
+  --font-size-text-xs: 12px;
+  --line-height-text-xs: 18px;
+  --letter-spacing-text-xs: normal;
+
+  /* Typography - Tailwind Extensions */
+  --font-family-display: var(--font-family-display);
+  --font-family-body: var(--font-family-body);
+
+  /* Font size utilities */
+  --fontSize-display-2xl: var(--font-size-display-2xl);
+  --fontSize-display-xl: var(--font-size-display-xl);
+  --fontSize-display-lg: var(--font-size-display-lg);
+  --fontSize-display-md: var(--font-size-display-md);
+  --fontSize-display-sm: var(--font-size-display-sm);
+  --fontSize-display-xs: var(--font-size-display-xs);
+  --fontSize-text-xl: var(--font-size-text-xl);
+  --fontSize-text-lg: var(--font-size-text-lg);
+  --fontSize-text-md: var(--font-size-text-md);
+  --fontSize-text-sm: var(--font-size-text-sm);
+  --fontSize-text-xs: var(--font-size-text-xs);
+
+  /* Line height utilities */
+  --lineHeight-display-2xl: var(--line-height-display-2xl);
+  --lineHeight-display-xl: var(--line-height-display-xl);
+  --lineHeight-display-lg: var(--line-height-display-lg);
+  --lineHeight-display-md: var(--line-height-display-md);
+  --lineHeight-display-sm: var(--line-height-display-sm);
+  --lineHeight-display-xs: var(--line-height-display-xs);
+  --lineHeight-text-xl: var(--line-height-text-xl);
+  --lineHeight-text-lg: var(--line-height-text-lg);
+  --lineHeight-text-md: var(--line-height-text-md);
+  --lineHeight-text-sm: var(--line-height-text-sm);
+  --lineHeight-text-xs: var(--line-height-text-xs);
+
+  /* Letter spacing utilities */
+  --letterSpacing-display-2xl: var(--letter-spacing-display-2xl);
+  --letterSpacing-display-xl: var(--letter-spacing-display-xl);
+  --letterSpacing-display-lg: var(--letter-spacing-display-lg);
+  --letterSpacing-display-md: var(--letter-spacing-display-md);
+  --letterSpacing-display-sm: var(--letter-spacing-display-sm);
+  --letterSpacing-display-xs: var(--letter-spacing-display-xs);
+  --letterSpacing-text-xl: var(--letter-spacing-text-xl);
+  --letterSpacing-text-lg: var(--letter-spacing-text-lg);
+  --letterSpacing-text-md: var(--letter-spacing-text-md);
+  --letterSpacing-text-sm: var(--letter-spacing-text-sm);
+  --letterSpacing-text-xs: var(--letter-spacing-text-xs);
+
+  /* Spacing System - Consistent spacing scale from Figma Design System */
+  --spacing-none: 0px;
+  --spacing-xxs: 2px;
+  --spacing-xs: 4px;
+  --spacing-sm: 6px;
+  --spacing-md: 8px;
+  --spacing-lg: 12px;
+  --spacing-xl: 16px;
+  --spacing-2xl: 20px;
+  --spacing-3xl: 24px;
+  --spacing-4xl: 32px;
+  --spacing-5xl: 40px;
+  --spacing-6xl: 48px;
+  --spacing-7xl: 64px;
+  --spacing-8xl: 80px;
+  --spacing-9xl: 96px;
+  --spacing-10xl: 128px;
+  --spacing-11xl: 160px;
+
+  /* Spacing utilities for Tailwind - Maps to padding, margin, gap utilities */
+  --spacing-spacing-none: var(--spacing-none);
+  --spacing-spacing-xxs: var(--spacing-xxs);
+  --spacing-spacing-xs: var(--spacing-xs);
+  --spacing-spacing-sm: var(--spacing-sm);
+  --spacing-spacing-md: var(--spacing-md);
+  --spacing-spacing-lg: var(--spacing-lg);
+  --spacing-spacing-xl: var(--spacing-xl);
+  --spacing-spacing-2xl: var(--spacing-2xl);
+  --spacing-spacing-3xl: var(--spacing-3xl);
+  --spacing-spacing-4xl: var(--spacing-4xl);
+  --spacing-spacing-5xl: var(--spacing-5xl);
+  --spacing-spacing-6xl: var(--spacing-6xl);
+  --spacing-spacing-7xl: var(--spacing-7xl);
+  --spacing-spacing-8xl: var(--spacing-8xl);
+  --spacing-spacing-9xl: var(--spacing-9xl);
+  --spacing-spacing-10xl: var(--spacing-10xl);
+  --spacing-spacing-11xl: var(--spacing-11xl);
+
+
+
+  /* Width Scale - Container & Layout Widths from Figma Design System */
+  --width-xxs: 20rem;     /* 320px */
+  --width-xs: 24rem;      /* 384px */
+  --width-sm: 30rem;      /* 480px */
+  --width-md: 35rem;      /* 560px */
+  --width-lg: 40rem;      /* 640px */
+  --width-xl: 48rem;      /* 768px */
+  --width-2xl: 64rem;     /* 1,024px */
+  --width-3xl: 80rem;     /* 1,280px */
+  --width-4xl: 90rem;     /* 1,440px */
+  --width-5xl: 100rem;    /* 1,600px */
+  --width-6xl: 120rem;    /* 1,920px */
+
+  /* Max-width utilities for Tailwind CSS v4 */
+  --max-width-xxs: 20rem;     /* 320px */
+  --max-width-xs: 24rem;      /* 384px */
+  --max-width-sm: 30rem;      /* 480px */
+  --max-width-md: 35rem;      /* 560px */
+  --max-width-lg: 40rem;      /* 640px */
+  --max-width-xl: 48rem;      /* 768px */
+  --max-width-2xl: 64rem;     /* 1,024px */
+  --max-width-3xl: 80rem;     /* 1,280px */
+  --max-width-4xl: 90rem;     /* 1,440px */
+  --max-width-5xl: 100rem;    /* 1,600px */
+  --max-width-6xl: 120rem;    /* 1,920px */
+
+  /* Border Radius theme configuration for Tailwind CSS v4 */
+  --radius-none: 0px;
+  --radius-xxs: 2px;
+  --radius-xs: 4px;
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-lg: 10px;
+  --radius-xl: 12px;
+  --radius-2xl: 16px;
+  --radius-3xl: 20px;
+  --radius-6xl: 40px;
+  --radius-5xl: 32px;
+  --radius-full: 9999px;
+
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+
+  @theme inline {
+    /* Gray Colors - Dark Mode Override */
+    --color-gray-100: #f0f0f1;
+    --color-gray-200: #ececed;
+    --color-gray-300: #cecfd2;
+    --color-gray-400: #94979c;
+    --color-gray-500: #85888e;
+    --color-gray-600: #61656c;
+    --color-gray-700: #373a41;
+    --color-gray-800: #22262f;
+    --color-gray-900: #13161b;
+    --color-gray-950: #0c0e12;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+}
+
+/* Typography Utility Classes */
+/*
+  Doctor Wise Design System Typography
+  
+  Usage Guidelines:
+  - Display sizes (display-2xl to display-xs): Use for headings, hero text, and prominent UI elements
+  - Text sizes (text-xl to text-xs): Use for body text, captions, and interface text
+  - Combine with font weight utilities: font-normal (400), font-medium (500), font-semibold (600), font-bold (700)
+  
+  Examples:
+  <h1 class="text-display-2xl font-bold">Main Headline</h1>
+  <h2 class="text-display-lg font-semibold">Section Title</h2>
+  <p class="text-text-md font-normal">Body text</p>
+  <span class="text-text-sm font-medium text-text-tertiary">Caption text</span>
+  
+  Semantic Hierarchy:
+  - display-2xl/xl: Main page headers, marketing headlines
+  - display-lg/md: Section headers, card titles  
+  - display-sm/xs: Subheadings, component titles
+  - text-xl/lg: Large body text, prominent descriptions
+  - text-md: Default body text, form labels
+  - text-sm/xs: Captions, helper text, metadata
+*/
+
+/* Display sizes with proper line-height and letter-spacing */
+.text-display-2xl {
+  font-size: var(--fontSize-display-2xl);
+  line-height: var(--lineHeight-display-2xl);
+  letter-spacing: var(--letterSpacing-display-2xl);
+  font-family: var(--font-family-display);
+}
+
+.text-display-xl {
+  font-size: var(--fontSize-display-xl);
+  line-height: var(--lineHeight-display-xl);
+  letter-spacing: var(--letterSpacing-display-xl);
+  font-family: var(--font-family-display);
+}
+
+.text-display-lg {
+  font-size: var(--fontSize-display-lg);
+  line-height: var(--lineHeight-display-lg);
+  letter-spacing: var(--letterSpacing-display-lg);
+  font-family: var(--font-family-display);
+}
+
+.text-display-md {
+  font-size: var(--fontSize-display-md);
+  line-height: var(--lineHeight-display-md);
+  letter-spacing: var(--letterSpacing-display-md);
+  font-family: var(--font-family-display);
+}
+
+.text-display-sm {
+  font-size: var(--fontSize-display-sm);
+  line-height: var(--lineHeight-display-sm);
+  letter-spacing: var(--letterSpacing-display-sm);
+  font-family: var(--font-family-display);
+}
+
+.text-display-xs {
+  font-size: var(--fontSize-display-xs);
+  line-height: var(--lineHeight-display-xs);
+  letter-spacing: var(--letterSpacing-display-xs);
+  font-family: var(--font-family-display);
+}
+
+/* Text sizes with proper line-height and letter-spacing */
+.text-text-xl {
+  font-size: var(--fontSize-text-xl);
+  line-height: var(--lineHeight-text-xl);
+  letter-spacing: var(--letterSpacing-text-xl);
+  font-family: var(--font-family-body);
+}
+
+.text-text-lg {
+  font-size: var(--fontSize-text-lg);
+  line-height: var(--lineHeight-text-lg);
+  letter-spacing: var(--letterSpacing-text-lg);
+  font-family: var(--font-family-body);
+}
+
+.text-text-md {
+  font-size: var(--fontSize-text-md);
+  line-height: var(--lineHeight-text-md);
+  letter-spacing: var(--letterSpacing-text-md);
+  font-family: var(--font-family-body);
+}
+
+.text-text-sm {
+  font-size: var(--fontSize-text-sm);
+  line-height: var(--lineHeight-text-sm);
+  letter-spacing: var(--letterSpacing-text-sm);
+  font-family: var(--font-family-body);
+}
+
+.text-text-xs {
+  font-size: var(--fontSize-text-xs);
+  line-height: var(--lineHeight-text-xs);
+  letter-spacing: var(--letterSpacing-text-xs);
+  font-family: var(--font-family-body);
+}
+
+/* Spacing System Documentation
+  Doctor Wise Design System Spacing Scale
+  
+  Usage Guidelines:
+  - The spacing scale provides consistent spacing values across the application
+  - Values range from 0 (none) to 160px (11xl)
+  - Use these tokens for padding, margin, gap, and positioning
+  
+  Scale Overview:
+  - spacing-none: 0px - No spacing
+  - spacing-xxs: 2px - Minimal spacing for tight layouts
+  - spacing-xs: 4px - Extra small spacing for compact elements
+  - spacing-sm: 6px - Small spacing for related elements  
+  - spacing-md: 8px - Medium spacing, good default
+  - spacing-lg: 12px - Large spacing for clear separation
+  - spacing-xl: 16px - Extra large spacing
+  - spacing-2xl: 20px - Common for component padding
+  - spacing-3xl: 24px - Section spacing
+  - spacing-4xl: 32px - Major section spacing
+  - spacing-5xl: 40px - Large gaps between sections
+  - spacing-6xl: 48px - Page section spacing
+  - spacing-7xl: 64px - Major page sections
+  - spacing-8xl: 80px - Hero sections
+  - spacing-9xl: 96px - Large hero sections
+  - spacing-10xl: 128px - Extra large sections
+  - spacing-11xl: 160px - Maximum spacing
+  
+  Tailwind Usage:
+  - Padding: p-spacing-md, px-spacing-lg, py-spacing-xl
+  - Margin: m-spacing-sm, mt-spacing-2xl, mb-spacing-3xl  
+  - Gap: gap-spacing-xs, gap-x-spacing-md, gap-y-spacing-lg
+  - Space between: space-x-spacing-md, space-y-spacing-lg
+  
+  Common Patterns:
+  - Card padding: p-spacing-2xl or p-spacing-3xl
+  - Button padding: px-spacing-lg py-spacing-md
+  - Form field spacing: gap-spacing-md
+  - Section margins: my-spacing-6xl or my-spacing-7xl
+  - Icon spacing: gap-spacing-xs or gap-spacing-sm
+  - List item spacing: space-y-spacing-md
+  
+  Responsive Usage:
+  - Mobile: Prefer smaller values (xs, sm, md)
+  - Tablet: Standard values (md, lg, xl)  
+  - Desktop: Larger values (2xl, 3xl, 4xl)
+  
+  Examples:
+  <div class="p-spacing-2xl">Card with standard padding</div>
+  <div class="flex gap-spacing-md">Flexbox with medium gap</div>
+  <section class="my-spacing-7xl">Section with large vertical margin</section>
+  <button class="px-spacing-lg py-spacing-md">Button with balanced padding</button>
+*/
+
+/* Border Radius System Documentation
+  Doctor Wise Design System Border Radius Scale
+  
+  Usage Guidelines:
+  - The radius scale provides consistent corner rounding values
+  - Values range from 0 (sharp corners) to 9999px (fully rounded)
+  - Use these tokens for buttons, cards, modals, and other UI elements
+  
+  Scale Overview:
+  - radius-none: 0px - Sharp corners, no rounding
+  - radius-xxs: 2px - Subtle rounding for minimal softness
+  - radius-xs: 4px - Extra small radius for inputs and small elements
+  - radius-sm: 6px - Small radius for buttons and form elements
+  - radius-md: 8px - Medium radius, good default for cards
+  - radius-lg: 10px - Large radius for prominent components
+  - radius-xl: 12px - Extra large radius for modals and overlays
+  - radius-2xl: 16px - Larger radius for special components
+  - radius-3xl: 20px - Very large radius for featured elements
+  - radius-full: 9999px - Creates circles/pills (fully rounded)
+  
+  Tailwind Usage:
+  - All corners: rounded-md
+  - Top corners: rounded-t-lg
+  - Right corners: rounded-r-sm
+  - Bottom corners: rounded-b-xl
+  - Left corners: rounded-l-md
+  - Individual corners: rounded-tl-sm, rounded-br-lg
+  
+  Examples:
+  <button class="rounded-md">Standard button</button>
+  <div class="rounded-lg">Card container</div>
+  <img class="rounded-full" src="avatar.jpg" alt="User avatar" />
+  <span class="rounded-full px-3 py-1">Pill badge</span>
+  <input class="rounded-sm" type="text" />
+*/
+
+/* Gradient Utilities (built from design tokens) */
+/*
+  Hero right-side panel gradient. Uses existing token colors only.
+  Angle and stops chosen to match Figma hero background treatment.
+*/
+.bg-hero-gradient {
+  /* Matches Figma node 13308:18890: subtle light neutral gradient */
+  background-image: linear-gradient(
+    135deg,
+    var(--color-white) 0%,
+    var(--color-gray-100) 100%
+  );
+}
+
+/* Hero box container gradient (104deg, gray-25 -> gray-50) */
+.bg-hero-box-gradient {
+  background-image: linear-gradient(
+    104deg,
+    var(--color-gray-25) 0%,
+    var(--color-gray-50) 100%
+  );
+}

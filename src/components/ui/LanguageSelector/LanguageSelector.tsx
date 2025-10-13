@@ -16,6 +16,7 @@ type Language = {
 const availableLanguages: Language[] = [
   { code: 'pt', label: 'Português', flag: '/Assets/Misc-assets/Country-icons/BR.svg' },
   { code: 'en', label: 'English', flag: '/Assets/Misc-assets/Country-icons/US.svg' },
+  { code: 'es', label: 'Español', flag: '/Assets/Misc-assets/Country-icons/MX.svg' },
 ];
 
 export function LanguageSelector({
@@ -32,8 +33,8 @@ export function LanguageSelector({
 
   React.useEffect(() => {
     const parts = pathname.split('/').filter(Boolean);
-    const code = parts[0] === 'en' ? 'en' : 'pt';
-    const found = availableLanguages.find((l) => l.code === code) ?? availableLanguages[0];
+    const currentLocale = parts[0];
+    const found = availableLanguages.find((l) => l.code === currentLocale) ?? availableLanguages[0];
     setSelectedLanguage(found);
   }, [pathname]);
 
@@ -103,7 +104,8 @@ export function LanguageSelector({
     // Navigate to same path under selected locale prefix
     try {
       const parts = pathname.split('/').filter(Boolean);
-      if (parts.length > 0 && (parts[0] === 'pt' || parts[0] === 'en')) parts.shift();
+      const validLocales = ['pt', 'en', 'es'];
+      if (parts.length > 0 && validLocales.includes(parts[0])) parts.shift();
       const basePath = '/' + parts.join('/');
       const target = `/${language.code}${basePath}`;
       window.location.assign(target);

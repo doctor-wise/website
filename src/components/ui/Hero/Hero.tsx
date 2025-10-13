@@ -4,6 +4,7 @@ import React from 'react';
 import Image from 'next/image';
 import { Heading } from '@/components/ui/Typography/Heading';
 import { Text } from '@/components/ui/Typography/Text';
+import {useTranslations} from 'next-intl';
 import { Icon } from '@/components/icons';
 
 // Local assets (served from public/images)
@@ -23,6 +24,7 @@ const LOGO_SISYPHUS_TEXT = '/images/Partners_logos/Partner-logo_arvo.png';
 
 
 export function Hero(): React.ReactElement {
+  const t = useTranslations('Hero');
   return (
     <section id="initial_section" className="w-full bg-bg-primary flex flex-col justify-start gap-spacing-xl">
 
@@ -41,7 +43,7 @@ export function Hero(): React.ReactElement {
                   120k+
                   </span>
                   <span className="text-text-xs font-medium text-text-secondary">
-                  Profissionais e acadêmicos confiam na Doctor Wise
+                  {t('badge')}
                   </span>
                   
 
@@ -51,14 +53,17 @@ export function Hero(): React.ReactElement {
                 <div id="hero_title-subtitle" className="flex flex-col gap-spacing-lg">  
 
                   <Heading as="h1" size="display-lg" weight="semibold" color="secondary">
-                  IA médica baseada
-                  <br />
-                  <span className="text-text-brand-tertiary-alt">em evidências</span>
+                  {t.rich('title', {
+                    br: () => <br />,
+                    highlight: (chunks) => (
+                      <span className="text-text-brand-tertiary-alt">{chunks}</span>
+                    ),
+                  })}
                   </Heading>
 
                   {/* Figma: Title & subtitile / Supporting text */}
                   <Text as="p" size="xl" className="text-text-tertiary max-w-[426px]">
-                  Respostas verdadeiramente confiáveis, geradas por tecnologia de ponta.
+                  {t('subtitle')}
                   </Text>
                 </div>
               </div>

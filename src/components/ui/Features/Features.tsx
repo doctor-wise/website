@@ -4,6 +4,7 @@ import React from 'react';
 import Image from 'next/image';
 import { Heading } from '@/components/ui/Typography/Heading';
 import { Text } from '@/components/ui/Typography/Text';
+import {useTranslations} from 'next-intl';
 import { Icon } from '@/components/icons';
 import { Badge } from '@/components/ui/Badge/Badge';
 
@@ -13,6 +14,7 @@ const FLOWCHART_IMG = '/images/Flowchart-illustration.png';
 const FLOWCHART_ACTION_PILL_1 = '/images/Flowchart-action-pill.png';
 
 export function Features(): React.ReactElement {
+  const t = useTranslations('Features');
   return (
     <section id="features-section" className="w-full max-w-3xl mx-auto bg-bg-primary border-t border-border-secondary rounded-t-5xl">
 
@@ -23,9 +25,7 @@ export function Features(): React.ReactElement {
 
           <div id="created-by-heading" className="">
             <Heading as="h2" size="display-md" weight="semibold" color="secondary">
-              Criado por e para
-              <br />
-              <span className="text-text-brand-tertiary-alt">profissionais da saúde</span>
+              {t.rich('heading', { br: () => <br />, highlight: (c) => (<span className="text-text-brand-tertiary-alt">{c}</span>) })}
             </Heading>
           </div>
 
@@ -37,12 +37,12 @@ export function Features(): React.ReactElement {
               </div>
 
               <Text as="p" size="xl" weight="semibold" align="center" className="text-text-brand-tertiary-alt">
-                Referências Bibliográficas Integradas
+                {t('leftTitle')}
               </Text>
             </div>
 
             <Text as="p" size="sm" weight="medium" align="center" color="tertiary">
-              Cada resposta vem com uma lista de referências acadêmicas de fontes selecionadas.
+              {t('leftDesc')}
             </Text>
 
             <div id="references" className="flex flex-col gap-spacing-lg w-full">
@@ -80,18 +80,18 @@ export function Features(): React.ReactElement {
             </div>
 
             <Text as="p" size="xl" weight="semibold" align="center" className="text-text-brand-tertiary-alt">
-              Gráficos, diagramas e mapas mentais em segundos
+              {t('rightTitle')}
             </Text>
           </div>
 
           <Text as="p" size="sm" weight="medium" align="center" color="tertiary">
-            Cada resposta vem com uma lista de referências acadêmicas de fontes selecionadas.
+            {t('rightDesc')}
           </Text>
 
           <div id="flowchart-illustration" className="relative h-[311px] w-[470px]">
             <Image
               src={FLOWCHART_IMG}
-              alt="Fluxograma gerado"
+              alt={t('flowAlt')}
               fill
               sizes="(min-width: 1024px) 470px, 92vw"
               className="object-contain"
@@ -103,7 +103,7 @@ export function Features(): React.ReactElement {
           <div id="flowchart-action-pill-1" className="absolute left-spacing-5xl bottom-spacing-2xl h-[65px] w-[330px]">
             <Image
               src={FLOWCHART_ACTION_PILL_1}
-              alt="Pílula de ação do fluxograma"
+              alt={t('pillAlt')}
               fill
               sizes="(min-width: 1024px) 330px, 60vw"
               className="object-contain"

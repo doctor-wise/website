@@ -16,7 +16,6 @@ type Language = {
 const availableLanguages: Language[] = [
   { code: 'pt', label: 'Português', flag: '/Assets/Misc-assets/Country-icons/BR.svg' },
   { code: 'en', label: 'English', flag: '/Assets/Misc-assets/Country-icons/US.svg' },
-  { code: 'es', label: 'Español', flag: '/Assets/Misc-assets/Country-icons/MX.svg' },
 ];
 
 export function LanguageSelector({
@@ -29,6 +28,14 @@ export function LanguageSelector({
 
   const buttonRef = React.useRef<HTMLButtonElement | null>(null);
   const dropdownRef = React.useRef<HTMLDivElement | null>(null);
+  const pathname = typeof window !== 'undefined' ? window.location.pathname : '/pt';
+
+  React.useEffect(() => {
+    const parts = pathname.split('/').filter(Boolean);
+    const code = parts[0] === 'en' ? 'en' : 'pt';
+    const found = availableLanguages.find((l) => l.code === code) ?? availableLanguages[0];
+    setSelectedLanguage(found);
+  }, [pathname]);
 
   const displayedLanguages = availableLanguages.filter((lang) => lang.code !== selectedLanguage.code);
 
@@ -93,7 +100,16 @@ export function LanguageSelector({
   const handleLanguageSelect = (language: Language) => {
     setSelectedLanguage(language);
     setIsOpen(false);
-    buttonRef.current?.focus();
+    // Navigate to same path under selected locale prefix
+    try {
+      const parts = pathname.split('/').filter(Boolean);
+      if (parts.length > 0 && (parts[0] === 'pt' || parts[0] === 'en')) parts.shift();
+      const basePath = '/' + parts.join('/');
+      const target = `/${language.code}${basePath}`;
+      window.location.assign(target);
+    } finally {
+      buttonRef.current?.focus();
+    }
   };
 
   const handleButtonClick = () => {

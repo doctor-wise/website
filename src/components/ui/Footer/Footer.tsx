@@ -5,6 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Icon } from '@/components/icons';
 import { LogoDefault } from '@/components/ui/Logo/LogoDefault';
+import {useTranslations} from 'next-intl';
 
 /**
  * Footer (Figma node: 13264:36846)
@@ -13,6 +14,7 @@ import { LogoDefault } from '@/components/ui/Logo/LogoDefault';
  * - Images must come from public assets; brand icons from icon library
  */
 export function Footer(): React.ReactElement {
+  const t = useTranslations('Footer');
   return (
     <footer id="Footer" className="bg-bg-primary w-full">
       {/* Top container: logo and social/cta links */}
@@ -26,7 +28,7 @@ export function Footer(): React.ReactElement {
               {/* Be an ambassador */}
               <Link href="#" className="inline-flex items-center gap-spacing-sm text-text-md font-semibold text-text-tertiary hover:text-text-tertiary-hover">
                 <Icon name="users_plus" size="md" className="text-fg-quaternary" aria-label="users-plus" />
-                <span>Seja um embaixador</span>
+                <span>{t('ambassador')}</span>
               </Link>
 
               {/* Divider */}
@@ -60,11 +62,11 @@ export function Footer(): React.ReactElement {
       <div id="Footer_container-bottom" className="mx-auto w-full max-w-3xl px-spacing-6xl pb-spacing-6xl">
         <div id="Footer_content-bottom" className="border-t border-border-secondary pt-spacing-3xl flex flex-wrap items-center justify-between gap-spacing-2xl text-text-md text-text-quaternary">
           <p className="text-text-md text-text-quaternary">
-            © 2025 DOCTOR WISE TECNOLOGIA LTDA. CNPJ: 60.964.645/0001-76. Todos os direitos reservados.
+            {t('copyright')}
           </p>
           <div id="Footer_policy-links" className="flex items-center gap-spacing-xl text-text-md text-text-quaternary">
-            <Link href="#">Política de privacidade</Link>
-            <Link href="#">Termos de uso</Link>
+            <Link href="#">{t('privacy')}</Link>
+            <Link href="#">{t('terms')}</Link>
           </div>
         </div>
       </div>

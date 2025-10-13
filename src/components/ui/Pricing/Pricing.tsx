@@ -7,17 +7,18 @@ import { PricingModeToggle } from '@/components/ui/Pricing/PricingModeToggle';
 import { Button } from '@/components/ui/Button';
 import { Icon } from '@/components/icons';
 import { LogoMark } from '@/components/ui/Logo/LogoMark';
+import {useTranslations} from 'next-intl';
 
 type Billing = 'mensal' | 'anual';
 
 const PLUS_PRICING = {
-  mensal: { price: 'R$38,90', suffix: '/mês', sub: 'Cobrado mensalmente' },
-  anual: { price: 'R$229,90', suffix: '/Ano', sub: 'Cobrado anualmente (R$19,16/mês).' },
+  mensal: { price: 'R$38,90', suffixKey: 'billing.monthlySuffix', subKey: 'billing.monthlySub' },
+  anual: { price: 'R$229,90', suffixKey: 'billing.yearlySuffix', subKey: 'billing.yearlySubPlus' },
 } as const;
 
 const PRO_PRICING = {
-  mensal: { price: 'R$69,90', suffix: '/mês', sub: 'Cobrado mensalmente' },
-  anual: { price: 'R$419,90', suffix: '/Ano', sub: 'Cobrado anualmente (R$34,99/mês).' },
+  mensal: { price: 'R$69,90', suffixKey: 'billing.monthlySuffix', subKey: 'billing.monthlySub' },
+  anual: { price: 'R$419,90', suffixKey: 'billing.yearlySuffix', subKey: 'billing.yearlySubPro' },
 } as const;
 
 function BenefitItem({ children }: { children: React.ReactNode }) {
@@ -35,6 +36,7 @@ function Divider() {
 
 export function Pricing(): React.ReactElement {
   const [billing, setBilling] = React.useState<Billing>('anual');
+  const t = useTranslations('Pricing');
 
   const plus = PLUS_PRICING[billing];
   const pro = PRO_PRICING[billing];
@@ -47,8 +49,8 @@ export function Pricing(): React.ReactElement {
 
           <div id="pricing_header" className="flex flex-col items-center gap-spacing-xl">
             <LogoMark size="md" />
-            <Heading as="h3" size="display-md" weight="semibold" align="center" color="secondary">Comece grátis agora</Heading>
-            <Text as="p" size="sm" color="secondary" align="center">Ou escolha um plano ideal para você.</Text>
+            <Heading as="h3" size="display-md" weight="semibold" align="center" color="secondary">{t('heading')}</Heading>
+            <Text as="p" size="sm" color="secondary" align="center">{t('sub')}</Text>
           </div>
 
           <div id="pricing_button_group" className="flex items-center gap-spacing-md">
@@ -60,7 +62,7 @@ export function Pricing(): React.ReactElement {
             <div id="pricing_card_free" className="flex-1 bg-bg-primary border border-border-secondary rounded-5xl">
               <div className="p-spacing-4xl flex flex-col gap-spacing-4xl items-start">
                 <div id="tag_wrapper_free" className="h-8 flex items-center">
-                  <Image src="/Assets/Misc-assets/Plan-tags/FREE-tag.svg" alt="Grátis" width={100} height={32} className="h-8 w-auto" />
+                  <Image src="/Assets/Misc-assets/Plan-tags/FREE-tag.svg" alt={t('free')} width={100} height={32} className="h-8 w-auto" />
                 </div>
                 <div id="price_wrapper_free" className="flex flex-col items-start text-left text-text-secondary">
                   <Heading as="p" size="display-lg" weight="bold" color="secondary">R$0,00</Heading>
@@ -68,8 +70,9 @@ export function Pricing(): React.ReactElement {
                 </div>
                 <Divider />
                 <div id="benefits_free" className="w-full flex flex-col gap-spacing-md">
-                  <BenefitItem>5 Respostas/dia</BenefitItem>
-                  <BenefitItem>Histórico limitado</BenefitItem>
+                  {t.raw('freeBenefits').map((item: string, idx: number) => (
+                    <BenefitItem key={idx}>{item}</BenefitItem>
+                  ))}
                 </div>
               </div>
             </div>
@@ -82,16 +85,16 @@ export function Pricing(): React.ReactElement {
                 <div id="price_plus" className="flex flex-col items-start text-left text-text-secondary">
                   <p className="leading-none">
                     <span className="font-bold text-display-lg tracking-[-0.02em]">{plus.price}</span>
-                    <span className="font-semibold text-text-lg leading-[28px]">{plus.suffix}</span>
+                    <span className="font-semibold text-text-lg leading-[28px]">{t(plus.suffixKey)}</span>
                   </p>
-                  <Text as="p" size="sm">{plus.sub}</Text>
+                  <Text as="p" size="sm">{t(plus.subKey)}</Text>
                 </div>
                 <Divider />
                 <div id="benefits_plus" className="w-full flex flex-col gap-spacing-md">
-                  <BenefitItem>Respostas ilimitadas</BenefitItem>
-                  <BenefitItem>Histórico ilimitado</BenefitItem>
-                  <BenefitItem>Conversas longas</BenefitItem>
-                  <BenefitItem>5x Mais caracteres <span className="text-text-quaternary">(2.500)</span></BenefitItem>
+                  <BenefitItem>{t('plusBenefit1')}</BenefitItem>
+                  <BenefitItem>{t('plusBenefit2')}</BenefitItem>
+                  <BenefitItem>{t('plusBenefit3')}</BenefitItem>
+                  <BenefitItem>{t.rich('plusBenefit4', { small: (c) => <span className="text-text-quaternary">{c}</span> })}</BenefitItem>
                 </div>
               </div>
             </div>
@@ -104,17 +107,17 @@ export function Pricing(): React.ReactElement {
                 <div id="price_pro" className="flex flex-col items-start text-left text-text-secondary">
                   <p className="leading-none">
                     <span className="font-bold text-display-lg tracking-[-0.02em]">{pro.price}</span>
-                    <span className="font-semibold text-text-lg leading-[28px]">{pro.suffix}</span>
+                    <span className="font-semibold text-text-lg leading-[28px]">{t(pro.suffixKey)}</span>
                   </p>
-                  <Text as="p" size="sm">{pro.sub}</Text>
+                  <Text as="p" size="sm">{t(pro.subKey)}</Text>
                 </div>
                 <Divider />
                 <div id="benefits_pro" className="w-full flex flex-col gap-spacing-md">
-                  <BenefitItem>Respostas ilimitadas</BenefitItem>
-                  <BenefitItem>Histórico limitado</BenefitItem>
-                  <BenefitItem>Conversas longas</BenefitItem>
-                  <BenefitItem>10x mais caracteres <span className="text-text-quaternary">(10.000)</span></BenefitItem>
-                  <BenefitItem>Respostas mais detalhadas</BenefitItem>
+                  <BenefitItem>{t('proBenefit1')}</BenefitItem>
+                  <BenefitItem>{t('proBenefit2')}</BenefitItem>
+                  <BenefitItem>{t('proBenefit3')}</BenefitItem>
+                  <BenefitItem>{t.rich('proBenefit4', { small: (c) => <span className="text-text-quaternary">{c}</span> })}</BenefitItem>
+                  <BenefitItem>{t('proBenefit5')}</BenefitItem>
                 </div>
               </div>
             </div>
@@ -122,8 +125,8 @@ export function Pricing(): React.ReactElement {
           </div>
 
           <div id="pricing_actions" className="w-full flex items-center justify-center gap-spacing-lg">
-            <Button hierarchy="secondary" icon="message_square_01" iconPosition="right">Plano empresarial</Button>
-            <Button hierarchy="primary" icon="arrow_right" iconPosition="right">Acessar grátis</Button>
+            <Button hierarchy="secondary" icon="message_square_01" iconPosition="right">{t('ctaEnterprise')}</Button>
+            <Button hierarchy="primary" icon="arrow_right" iconPosition="right">{t('ctaAccess')}</Button>
           </div>
 
         </div>

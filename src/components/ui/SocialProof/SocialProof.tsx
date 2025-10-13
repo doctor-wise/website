@@ -4,6 +4,7 @@ import React, { useRef, useState } from 'react';
 import Image from 'next/image';
 import { Heading } from '@/components/ui/Typography/Heading';
 import { Text } from '@/components/ui/Typography/Text';
+import {useTranslations} from 'next-intl';
 import { PlayButton } from '@/components/ui/PlayButton/PlayButton';
 
 // Local images from public/images
@@ -64,6 +65,7 @@ function VideoTile({ src }: { src: string }) {
 }
 
 export function SocialProof(): React.ReactElement {
+  const t = useTranslations('SocialProof');
   return (
     <section id="social_proof_sections" className="w-full max-w-3xl mx-auto bg-bg-primary flex flex-col items-center px-spacing-xl">
 
@@ -71,9 +73,7 @@ export function SocialProof(): React.ReactElement {
 
         <div id="text_wrapper" className="w-full flex flex-col items-center">
           <Heading as="h3" size="display-md" weight="semibold" align="center" color="secondary">
-            Quem usa ama
-            <br />
-            <span className="text-text-brand-tertiary-alt">e recomenda</span>
+            {t.rich('heading', { br: () => <br />, highlight: (c) => (<span className="text-text-brand-tertiary-alt">{c}</span>) })}
           </Heading>
         </div>
 
@@ -81,14 +81,14 @@ export function SocialProof(): React.ReactElement {
 
           <div id="card_maurilo" className="[grid-area:1_/_1_/_auto_/_span_2] bg-bg-primary border border-border-secondary rounded-5xl flex flex-col items-center gap-spacing-lg p-spacing-4xl">
             <div id="avatar_maurilo" className="size-16 rounded-full border border-border-secondary overflow-hidden relative">
-              <Image src={imgAvatar} alt="Foto de Dr. Maurilo Leite Jr." fill className="object-cover" sizes="64px" />
+              <Image src={imgAvatar} alt={t('mauriloAlt')} fill className="object-cover" sizes="64px" />
             </div>
             <div id="name_title_maurilo" className="text-center">
-              <Heading as="h4" size="display-xs" weight="semibold" align="center" color="brand">Dr. Maurilo Leite Jr.</Heading>
-              <Text as="p" size="sm" color="secondary" align="center">MD, PhD, UFRJ</Text>
+              <Heading as="h4" size="display-xs" weight="semibold" align="center" color="brand">{t('mauriloName')}</Heading>
+              <Text as="p" size="sm" color="secondary" align="center">{t('mauriloTitle')}</Text>
             </div>
             <Text as="p" size="sm" color="tertiary" align="center">
-              {`"Doctorwise é uma ferramenta inovadora e poderosa para médicos, profissionais das ciências da saúde e todos os cientistas interessados em questões de biologia. Estou usando Doctorwise e minha experiência tem sido bastante bem-sucedida para qualquer pergunta relacionada a uma ampla gama de interesses, abrangendo desde a ciência básica até problemas clínicos. Para aqueles no ramo médico e também para a ciência básica, eu recomendo fortemente Doctorwise como uma aplicação rápida, prática e muito eficaz para sua prática diária."`}
+              {`"${t('mauriloQuote')}"`}
             </Text>
           </div>
 
@@ -110,14 +110,14 @@ export function SocialProof(): React.ReactElement {
 
           <div id="card_raianne" className="[grid-area:3_/_2_/_auto_/_span_2] bg-bg-primary border border-border-secondary rounded-5xl flex flex-col items-center gap-spacing-lg p-spacing-4xl">
             <div id="avatar_raianne" className="size-16 rounded-full border border-border-secondary overflow-hidden relative">
-              <Image src={imgAvatar1} alt="Foto de Raianne Montenegro" fill className="object-cover" sizes="64px" />
+              <Image src={imgAvatar1} alt={t('raianneAlt')} fill className="object-cover" sizes="64px" />
             </div>
             <div id="name_title_raianne" className="text-center">
-              <Heading as="h4" size="display-xs" weight="semibold" align="center" color="brand">Raianne Montenegro</Heading>
-              <Text as="p" size="sm" color="secondary" align="center">Graduanda, Afya Paraíba</Text>
+              <Heading as="h4" size="display-xs" weight="semibold" align="center" color="brand">{t('raianneName')}</Heading>
+              <Text as="p" size="sm" color="secondary" align="center">{t('raianneTitle')}</Text>
             </div>
             <Text as="p" size="sm" color="tertiary" align="center">
-              {`"Minha experiência com a Doctor Wise tem sido incrível! Confesso que, inicialmente, tinha receios sobre inteligência artificial, mas a Doctor Wise mudou completamente minha percepção. Agora, essa IA não apenas otimiza meu tempo de estudo, mas também enriquece minha jornada na medicina, proporcionando respostas precisas e confiáveis. Estou impressionada com a eficácia e a praticidade que a Doctor Wise acrescentou à minha rotina."`}
+              {`"${t('raianneQuote')}"`}
             </Text>
           </div>
 

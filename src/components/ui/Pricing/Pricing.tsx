@@ -54,7 +54,12 @@ export function Pricing(): React.ReactElement {
           </div>
 
           <div id="pricing_button_group" className="flex items-center gap-spacing-md">
-            <PricingModeToggle value={billing} onChange={(v) => setBilling(v)} />
+            <PricingModeToggle 
+              value={billing} 
+              onChange={(v) => setBilling(v)} 
+              monthlyLabel={t('monthly')}
+              yearlyLabel={t('yearly')}
+            />
           </div>
 
           <div id="pricing_cards_wrapper" className="w-full flex gap-spacing-2xl items-stretch">

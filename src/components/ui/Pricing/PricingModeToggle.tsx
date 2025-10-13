@@ -10,6 +10,8 @@ export interface PricingModeToggleProps {
   defaultValue?: PricingMode;
   onChange?: (value: PricingMode) => void;
   className?: string;
+  monthlyLabel?: string;
+  yearlyLabel?: string;
 }
 
 /**
@@ -22,6 +24,8 @@ export const PricingModeToggle: React.FC<PricingModeToggleProps> = ({
   defaultValue = 'anual',
   onChange,
   className = '',
+  monthlyLabel = 'Mensal',
+  yearlyLabel = 'Anual',
 }) => {
   const isControlled = value !== undefined;
   const [internal, setInternal] = React.useState<PricingMode>(defaultValue);
@@ -77,13 +81,13 @@ export const PricingModeToggle: React.FC<PricingModeToggleProps> = ({
 
   return (
     <div className="relative flex items-center gap-spacing-md">
-      <BasePill active={current === 'mensal'} onClick={() => setValue('mensal')} ariaLabel="Mensal">
-        Mensal
+      <BasePill active={current === 'mensal'} onClick={() => setValue('mensal')} ariaLabel={monthlyLabel}>
+        {monthlyLabel}
       </BasePill>
 
       <div className="relative">
-        <BasePill active={current === 'anual'} onClick={() => setValue('anual')} ariaLabel="Anual">
-          Anual
+        <BasePill active={current === 'anual'} onClick={() => setValue('anual')} ariaLabel={yearlyLabel}>
+          {yearlyLabel}
         </BasePill>
         <div className="absolute left-1/2 translate-x-[-50%] -bottom-[14px] pointer-events-none select-none">
           <Badge size="sm" tone="brand" variant="soft" className="bg-utility-brand-50 border-utility-brand-200 text-utility-brand-700">50% OFF</Badge>

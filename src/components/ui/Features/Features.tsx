@@ -18,18 +18,18 @@ export function Features(): React.ReactElement {
   return (
     <section id="features-section" className="w-full max-w-3xl mx-auto bg-bg-primary border-t border-border-secondary rounded-t-5xl">
 
-      <div id="feature-cards-wrapper" className="mx-auto w-full max-w-3xl px-spacing-4xl py-spacing-7xl grid grid-cols-1 lg:grid-cols-2 gap-spacing-4xl items-stretch">
+      <div id="feature-cards-wrapper" className="mx-auto w-full max-w-3xl px-spacing-md py-spacing-3xl grid grid-cols-1 lg:grid-cols-2 gap-spacing-3xl lg:px-spacing-4xl lg:py-spacing-7xl lg:gap-spacing-4xl items-stretch">
 
         {/* Left column: Title and reference card */}
         <div id="left-column" className="flex flex-col gap-spacing-4xl justify-between">
 
           <div id="created-by-heading" className="">
-            <Heading as="h2" size="display-md" weight="semibold" color="secondary">
+            <Heading as="h2" size="display-xs" align="center" weight="semibold" color="secondary" className="lg:text-display-md">
               {t.rich('heading', { br: () => <br />, highlight: (c) => (<span className="text-text-brand-tertiary-alt">{c}</span>) })}
             </Heading>
           </div>
 
-          <div id="feature-card-left" className="bg-bg-primary border border-border-secondary rounded-6xl p-spacing-4xl flex flex-col items-center gap-spacing-lg">
+          <div id="feature-card-left" className="bg-bg-primary border border-border-secondary rounded-4xl lg:rounded-6xl p-spacing-xl lg:p-spacing-4xl flex flex-col items-center gap-spacing-lg">
 
             <div id="icon-and-title-left" className="flex flex-col items-center gap-spacing-lg">
               <div id="featured-icon-left" className="size-12 rounded-full border border-border-secondary grid place-items-center">
@@ -72,7 +72,7 @@ export function Features(): React.ReactElement {
         </div>
 
         {/* Right column: Dataflow feature card */}
-        <div id="feature-card-right" className="relative bg-bg-primary border border-border-secondary rounded-6xl p-spacing-4xl flex flex-col items-center justify-center gap-spacing-lg">
+        <div id="feature-card-right" className="relative bg-bg-primary border border-border-secondary rounded-4xl lg:rounded-6xl px-spacing-xl py-spacing-4xl lg:p-spacing-4xl flex flex-col items-center justify-center gap-spacing-lg">
 
           <div id="icon-and-title-right" className="flex flex-col items-center gap-spacing-lg">
             <div id="featured-icon-right" className="size-12 rounded-full border border-border-secondary grid place-items-center">
@@ -88,24 +88,24 @@ export function Features(): React.ReactElement {
             {t('rightDesc')}
           </Text>
 
-          <div id="flowchart-illustration" className="relative h-[311px] w-[470px]">
+          <div id="flowchart-illustration" className="relative h-[217px] w-[329px] lg:h-[311px] lg:w-[470px]">
             <Image
               src={FLOWCHART_IMG}
               alt={t('flowAlt')}
               fill
-              sizes="(min-width: 1024px) 470px, 92vw"
+              sizes="(min-width: 1024px) 470px, 329px"
               className="object-contain"
               quality={90}
               priority={false}
             />
           </div>
 
-          <div id="flowchart-action-pill-1" className="absolute left-spacing-5xl bottom-spacing-2xl h-[65px] w-[330px]">
+          <div id="flowchart-action-pill-1" className="absolute left-spacing-2xl bottom-[-13px] lg:left-spacing-5xl lg:bottom-spacing-2xl h-[65px] w-[330px]">
             <Image
               src={FLOWCHART_ACTION_PILL_1}
               alt={t('pillAlt')}
               fill
-              sizes="(min-width: 1024px) 330px, 60vw"
+              sizes="(min-width: 1024px) 330px, 330px"
               className="object-contain"
               quality={90}
               priority={false}

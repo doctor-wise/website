@@ -3,7 +3,6 @@ import { Geist, Geist_Mono } from 'next/font/google';
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
 import '../globals.css';
-import MobileBlocker from '@/components/ui/MobileBlocker';
 import { Footer } from '@/components/ui';
 import { getTranslations } from 'next-intl/server';
 
@@ -41,8 +40,6 @@ export default async function RootLayout({
           {children}
           {/* Global footer */}
           <Footer />
-          {/* Mobile overlay blocker */}
-          <MobileBlocker />
         </NextIntlClientProvider>
       </body>
     </html>

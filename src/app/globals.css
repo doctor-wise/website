@@ -419,6 +419,10 @@ body {
   font-family: Inter, ui-sans-serif, system-ui, sans-serif;
 }
 
+html {
+  overflow-x: hidden;
+}
+
 /* Typography Utility Classes */
 /*
   Doctor Wise Design System Typography
@@ -632,4 +636,33 @@ body {
     var(--color-gray-25) 0%,
     var(--color-gray-50) 100%
   );
+}
+
+/* Hero responsive typography (uses existing tokens; no raw values) */
+.hero-heading {
+  font-size: var(--fontSize-display-sm);
+  line-height: var(--lineHeight-display-sm);
+  letter-spacing: var(--letterSpacing-display-sm);
+  font-family: var(--font-family-display);
+}
+
+@media (min-width: 1024px) {
+  .hero-heading {
+    font-size: var(--fontSize-display-lg);
+    line-height: var(--lineHeight-display-lg);
+    letter-spacing: var(--letterSpacing-display-lg);
+  }
+}
+
+.hero-subtitle {
+  font-size: var(--fontSize-text-sm);
+  line-height: var(--lineHeight-text-sm);
+  font-family: var(--font-family-body);
+}
+
+@media (min-width: 1024px) {
+  .hero-subtitle {
+    font-size: var(--fontSize-text-xl);
+    line-height: var(--lineHeight-text-xl);
+  }
 }

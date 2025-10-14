@@ -21,12 +21,12 @@ export function PartnerLogos(): React.ReactElement {
     >
       <div 
         id="container" 
-        className="w-full max-w-[1280px] flex flex-col gap-spacing-4xl px-spacing-7xl py-spacing-none"
+        className="w-full max-w-[1280px] flex flex-col gap-spacing-6xl md:gap-spacing-4xl px-spacing-3xl md:px-spacing-7xl py-spacing-none items-center"
         data-node-id="13298:8652"
       >
         <div 
           id="logos" 
-          className="w-full flex flex-wrap items-center justify-between gap-spacing-3xl"
+          className="w-fit mx-auto flex flex-wrap items-start justify-center gap-spacing-6xl md:w-full md:items-center md:justify-between md:gap-spacing-3xl"
           data-node-id="13298:8654"
         >
           <div 

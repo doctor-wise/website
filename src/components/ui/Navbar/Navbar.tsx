@@ -42,24 +42,31 @@ export function Navbar(): React.ReactElement {
 
   return (
     <header className={wrapperClasses}>
-      <div className="mx-auto w-full max-w-3xl px-spacing-md pt-spacing-md md:px-spacing-xl pt-spacing-xl">
+      <div className="mx-auto w-full max-w-3xl px-spacing-md pt-spacing-xl pb-spacing-none md:px-spacing-xl md:pt-spacing-xl md:pb-spacing-none overflow-x-hidden">
         <div
+          id="Navbar"
+          data-name="State=Scroll, Size=Mobile"
+          data-node-id="13375:15929"
           className={[
             'flex items-center justify-between',
             'h-16',
             'rounded-full',
             'pl-spacing-3xl pr-spacing-2xl',
             'transition-all duration-300 ease-in-out',
+            // Mobile (always styled like Figma pill)
+            'bg-white/80 backdrop-blur border border-border-tertiary shadow-[0px_1px_2px_0px_rgba(10,13,18,0.05)]',
+            // Desktop behavior (transparent until scroll)
             isScrolled
-              ? 'bg-white/80 backdrop-blur border border-border-secondary mx-spacing-3xl shadow-[0px_1px_2px_0px_rgba(10,13,18,0.05)]'
-              : 'bg-transparent border border-transparent',
+              ? 'md:bg-white/80 md:backdrop-blur md:border md:border-border-secondary md:mx-spacing-3xl md:shadow-[0px_1px_2px_0px_rgba(10,13,18,0.05)]'
+              : 'md:bg-transparent md:border md:border-transparent md:shadow-none md:mx-0',
           ].join(' ')}
         >
           <Link href={`/${currentLocale}`} aria-label="Doctor Wise - Home" className="inline-flex items-center">
             <LogoDefault variant="light" size="md" />
           </Link>
 
-          <div className="flex items-center gap-spacing-2xl">
+          {/* Desktop actions */}
+          <div id="ActionsDesktop" className="hidden md:flex items-center gap-spacing-2xl">
             <LanguageSelector />
 
             {divider}
@@ -79,6 +86,17 @@ export function Navbar(): React.ReactElement {
               </span>
             </Button>
           </div>
+
+          {/* Mobile menu icon (visual only) */}
+          <button
+            id="Actions"
+            type="button"
+            aria-label="Open menu"
+            data-node-id="13375:15929"
+            className="md:hidden inline-flex items-center justify-center p-spacing-md"
+          >
+            <Icon name="menu_05" size="sm" className="text-fg-tertiary" aria-label="menu" />
+          </button>
         </div>
       </div>
     </header>

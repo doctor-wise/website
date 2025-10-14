@@ -28,6 +28,7 @@ export { Navbar } from './Navbar/Navbar';
 export { Features } from './Features/Features';
 export { PlayButton } from './PlayButton/PlayButton';
 export { SocialProof } from './SocialProof/SocialProof';
+export { PartnerLogos } from './PartnerLogos';
 export { Footer } from './Footer';
 export { Pricing } from './Pricing/Pricing';
 export { LanguageSelector } from './LanguageSelector';

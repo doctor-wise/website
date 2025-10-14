@@ -14,13 +14,13 @@ const IPHONE_IMG_MOBILE = '/images/hero_iphone-mock-mobile.png';
 // Combined desktop mock (Macbook + iPhone) from updated Figma
 const HERO_COMBINED_IMG = '/images/hero_mac-iphone-mock.png';
 // Social proof logos (served from public/images/Partners_logos)
+// Figma node: 13298:8651
 const LOGO_MEDRIO = '/images/Partners_logos/Partner-logo_medrio.png';
 const LOGO_G7MED = '/images/Partners_logos/Partner-logo_g7med.png';
-const LOGO_UNIG_WHITE = '/images/Partners_logos/Partner-logo_unig.png';
-const LOGO_GROUP_MEDCOF_MARK = '/images/Partners_logos/Partner-logo_medcof.png';
-// Temporary mapping for placeholder logos
-const LOGO_SISYPHUS_MARK = '/images/Partners_logos/Partner-logo_arvo.png';
-const LOGO_SISYPHUS_TEXT = '/images/Partners_logos/Partner-logo_arvo.png';
+const LOGO_CEPALAB = '/images/Partners_logos/Partner-logo_cepalab.png';
+const LOGO_RD_MED = '/images/Partners_logos/Partner-logo_rd-med.webp';
+const LOGO_UNIG = '/images/Partners_logos/Partner-logo_unig.png';
+const LOGO_SIBIONICS = '/images/Partners_logos/Partner-logo_sibionics.webp';
 
 
 export function Hero(): React.ReactElement {
@@ -119,40 +119,35 @@ export function Hero(): React.ReactElement {
 
       </div>
 
-      {/*Social proof section */}
-      <div className="bg-bg-secondary">
-        <div className="mx-auto w-full max-w-3xl px-spacing-4xl py-spacing-3xl">
-          {/* Figma: Container / Logos */}
-          <div className="flex flex-wrap items-center justify-between gap-spacing-3xl">
-            <div className="relative h-[30px] w-[134px]">
-              {/* Figma: logo-formatos_300x67 1 */}
-                  <Image src={LOGO_MEDRIO} alt="MedRio" fill sizes="134px" className="object-contain" quality={90} />
+      {/*Social proof section - Figma node: 13298:8651 */}
+      <div id="social_proof_section" className="bg-bg-secondary" data-node-id="13298:8651">
+        <div id="container" className="mx-auto w-full max-w-3xl px-spacing-7xl py-spacing-3xl" data-node-id="13298:8652">
+          <div id="logos" className="flex flex-wrap items-center justify-between gap-spacing-3xl" data-node-id="13298:8654">
+            
+            <div id="logo-medrio" className="relative h-[30px] w-[134px]" data-node-id="13298:8655">
+              <Image src={LOGO_MEDRIO} alt="Med Rio" fill sizes="134px" className="object-contain" quality={90} />
             </div>
-            <div className="relative h-[30px] w-[73px]">
-              {/* Figma: G7med-Logo-simples-3-e1717532363837 1 */}
-                  <Image src={LOGO_G7MED} alt="G7med" fill sizes="73px" className="object-contain" quality={90} />
+
+            <div id="logo-g7med" className="relative h-[30px] w-[73px]" data-node-id="13298:8656">
+              <Image src={LOGO_G7MED} alt="G7 Med" fill sizes="73px" className="object-contain" quality={90} />
             </div>
-            <div className="relative h-[30px] w-[76px]">
-              {/* Arvo logo (composed via mask in Figma) not available, skipping for now */}
-              {/* Figma: arvo logo 1 */}
-                  <Image src={LOGO_SISYPHUS_MARK} alt="Arvo placeholder" fill sizes="76px" className="object-contain" quality={90} />
+
+            <div id="logo-cepalab" className="relative h-[30px] w-[92px]" data-node-id="13345:13836">
+              <Image src={LOGO_CEPALAB} alt="Cepalab" fill sizes="92px" className="object-contain" quality={90} />
             </div>
-            {/* Figma: logo (1) 2 + Grupo Medcof text */}
-            <div className="relative h-[30px] w-[160px]">
-                  <Image src={LOGO_GROUP_MEDCOF_MARK} alt="Grupo Medcof mark" fill sizes="160px" className="object-contain" quality={90} />
+
+            <div id="logo-rd-med" className="relative h-[40px] w-[36px]" data-node-id="13345:13839">
+              <Image src={LOGO_RD_MED} alt="RD Med" fill sizes="36px" className="object-contain" quality={90} />
             </div>
-            <div className="relative h-[30px] w-[70px] rounded-xs bg-[#204b96]">
-              <div className="absolute left-1/2 top-[3px] h-[24px] w-[57px] -translate-x-1/2">
-                {/* Figma: logo-branca-da-unig-e1751475480960 1 */}
-                    <Image src={LOGO_UNIG_WHITE} alt="UNIG" fill sizes="57px" className="object-contain" quality={90} />
-              </div>
+
+            <div id="logo-unig" className="relative h-[30px] w-[70px]" data-node-id="13298:8675">
+              <Image src={LOGO_UNIG} alt="UNIG" fill sizes="70px" className="object-contain" quality={90} />
             </div>
-            <div className="flex items-center gap-spacing-sm h-[30px]">
-              <div className="relative h-[30px] w-[72px]">
-                {/* Figma: Company logo (Sisyphus text) */}
-                    <Image src={LOGO_SISYPHUS_TEXT} alt="Sisyphus" fill sizes="72px" className="object-contain" quality={90} />
-              </div>
+
+            <div id="logo-sibionics" className="relative h-[28px] w-[134px]" data-node-id="13345:13842">
+              <Image src={LOGO_SIBIONICS} alt="Sibionics" fill sizes="134px" className="object-contain" quality={90} />
             </div>
+
           </div>
         </div>
       </div>
@@ -161,5 +156,6 @@ export function Hero(): React.ReactElement {
 }
 
 export default Hero;
+
 
 

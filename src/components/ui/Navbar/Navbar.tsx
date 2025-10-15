@@ -43,8 +43,6 @@ export function Navbar(): React.ReactElement {
     'bg-transparent',
   ].join(' ');
 
-  const divider = <span className="hidden" />; // removed divider per new spec
-
   return (
     <header className={wrapperClasses}>
       <div className="mx-auto w-full max-w-3xl px-spacing-md pt-spacing-xl pb-spacing-none md:px-spacing-xl md:pt-spacing-xl md:pb-spacing-none overflow-x-hidden">

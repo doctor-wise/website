@@ -5,12 +5,9 @@ import Image from 'next/image';
 import { Heading } from '@/components/ui/Typography/Heading';
 import { Text } from '@/components/ui/Typography/Text';
 import {useTranslations} from 'next-intl';
-import { Icon } from '@/components/icons';
 import { PartnerLogos } from '@/components/ui/PartnerLogos';
 
 // Local assets (served from public/images)
-const MACBOOK_IMG = '/images/hero_mac-mock.png';
-const IPHONE_IMG_DESKTOP = '/images/hero_iphone-mock-desktop.png';
 const IPHONE_IMG_MOBILE = '/images/hero_iphone-mock-mobile.png';
 // Combined desktop mock (Macbook + iPhone) from updated Figma
 const HERO_COMBINED_IMG = '/images/hero_mac-iphone-mock.png';

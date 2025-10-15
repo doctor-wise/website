@@ -39,7 +39,7 @@ function VideoTile({ src }: { src: string }) {
         v.currentTime = 0.1;
         v.pause();
       }
-    } catch (_) {
+    } catch {
       // noop - some browsers may restrict programmatic seeks before metadata
     }
   };

@@ -16,8 +16,8 @@ const geistMono = Geist_Mono({
   subsets: ['latin'],
 });
 
-export async function generateMetadata({ params }: { params: Promise<{ locale: 'pt' | 'en' | 'es' }> }): Promise<Metadata> {
-  const { locale } = await params;
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+  const { locale } = await params as { locale: 'pt' | 'en' | 'es' };
   const t = await getTranslations({ locale, namespace: 'Meta' });
   
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://doctorwise.com';
@@ -86,9 +86,9 @@ export default async function RootLayout({
   params,
 }: Readonly<{
   children: React.ReactNode;
-  params: Promise<{ locale: 'pt' | 'en' | 'es' }>;
+  params: Promise<{ locale: string }>;
 }>) {
-  const { locale } = await params;
+  const { locale } = await params as { locale: 'pt' | 'en' | 'es' };
   const htmlLangMap: Record<'pt' | 'en' | 'es', string> = {
     pt: 'pt-BR',
     en: 'en',

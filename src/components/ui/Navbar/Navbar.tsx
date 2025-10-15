@@ -16,13 +16,15 @@ import { LanguageSelector } from '../LanguageSelector';
  */
 export function Navbar(): React.ReactElement {
   const [isScrolled, setIsScrolled] = React.useState(false);
-  const [isMenuOpen, setIsMenuOpen] = React.useState(false);
   const pathname = usePathname();
   const t = useTranslations('Navbar');
   const currentLocale = React.useMemo(() => {
     const parts = pathname?.split('/').filter(Boolean) ?? [];
     return parts[0] === 'en' ? 'en' : 'pt';
   }, [pathname]);
+
+  const ctaFull = t('ctaAccess');
+  const shortCta = React.useMemo(() => ctaFull.replace(/\s+(grátis|free|gratis)$/i, ''), [ctaFull]);
 
   React.useEffect(() => {
     const onScroll = () => {
@@ -33,40 +35,7 @@ export function Navbar(): React.ReactElement {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  // Close on ESC when menu is open
-  React.useEffect(() => {
-    if (!isMenuOpen) return;
-    const onKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') setIsMenuOpen(false);
-    };
-    window.addEventListener('keydown', onKeyDown);
-    return () => window.removeEventListener('keydown', onKeyDown);
-  }, [isMenuOpen]);
-
-  // Lock body scroll while the menu is open (iOS-safe)
-  React.useEffect(() => {
-    if (!isMenuOpen) return;
-    const scrollY = window.scrollY;
-    const style = document.body.style;
-    const prev = {
-      position: style.position,
-      top: style.top,
-      overflow: style.overflow,
-      width: style.width,
-    };
-    style.position = 'fixed';
-    style.top = `-${scrollY}px`;
-    style.width = '100%';
-    style.overflow = 'hidden';
-    return () => {
-      const y = Math.abs(parseInt(style.top || '0', 10)) || 0;
-      style.position = prev.position;
-      style.top = prev.top;
-      style.overflow = prev.overflow;
-      style.width = prev.width;
-      window.scrollTo(0, y);
-    };
-  }, [isMenuOpen]);
+  // Mobile menu removed per new spec; navbar is always inline on mobile
 
   const wrapperClasses = [
     'fixed top-0 left-0 right-0 z-50 w-full',
@@ -87,111 +56,43 @@ export function Navbar(): React.ReactElement {
             'flex items-center justify-between',
             'h-16',
             'rounded-full',
-            'pl-spacing-3xl pr-spacing-2xl',
+            'pl-spacing-2xl pr-spacing-xl',
             'transition-all duration-300 ease-in-out',
             // Mobile (always styled like Figma pill)
             'bg-white/80 backdrop-blur border border-border-tertiary shadow-[0px_1px_2px_0px_rgba(10,13,18,0.05)]',
             // Desktop behavior (transparent until scroll)
             isScrolled
-              ? 'md:bg-white/80 md:backdrop-blur md:border md:border-border-secondary md:mx-spacing-3xl md:shadow-[0px_1px_2px_0px_rgba(10,13,18,0.05)]'
-              : 'md:bg-transparent md:border md:border-transparent md:shadow-none md:mx-0',
+              ? 'md:pl-spacing-3xl md:pr-spacing-2xl md:bg-white/80 md:backdrop-blur md:border md:border-border-secondary md:mx-spacing-3xl md:shadow-[0px_1px_2px_0px_rgba(10,13,18,0.05)]'
+              : 'md:pl-spacing-3xl md:pr-spacing-2xl md:bg-transparent md:border md:border-transparent md:shadow-none md:mx-0',
           ].join(' ')}
         >
           <Link href={`/${currentLocale}`} aria-label="Doctor Wise - Home" className="inline-flex items-center">
-            <LogoDefault variant="light" size="md" />
+            <span className="inline-flex md:hidden">
+              <LogoDefault variant="light" size="sm" />
+            </span>
+            <span className="hidden md:inline-flex">
+              <LogoDefault variant="light" size="md" />
+            </span>
           </Link>
 
-          {/* Desktop actions */}
-          <div id="ActionsDesktop" className="hidden md:flex items-center gap-spacing-2xl">
+          {/* Actions */}
+          <div id="Actions" className="flex items-center gap-spacing-md md:gap-spacing-2xl">
             <LanguageSelector />
 
             <a href="https://doctorwise.app/" target="_blank" rel="noopener noreferrer" className="inline-block">
               <Button size="sm" hierarchy="primary">
                 <span className="inline-flex items-center gap-[4px] text-text-sm font-semibold">
-                  {t('ctaAccess')}
+                  <span className="md:hidden">{shortCta}</span>
+                  <span className="hidden md:inline">{t('ctaAccess')}</span>
                   <Icon name="arrow_right" size="sm" className="text-text-white" aria-label="arrow-right" />
                 </span>
               </Button>
             </a>
           </div>
-
-          {/* Mobile menu icon (visual only) */}
-          <button
-            id="Actions"
-            type="button"
-            aria-label="Open menu"
-            data-node-id="13375:15929"
-            className="md:hidden inline-flex items-center justify-center p-spacing-md"
-            onClick={() => setIsMenuOpen(true)}
-          >
-            <Icon name="menu_05" size="sm" className="text-fg-tertiary" aria-label="menu" />
-          </button>
+          
         </div>
       </div>
 
-      {/* Mobile full-screen menu overlay */}
-      {isMenuOpen && (
-        <div
-          id="NavbarMenu"
-          data-node-id="13375:16084"
-          role="dialog"
-          aria-modal="true"
-          className="md:hidden fixed inset-0 z-[60] overscroll-none"
-        >
-          
-          <div
-            id="Backdrop"
-            aria-hidden
-            className="absolute inset-0 backdrop-blur bg-white/80"
-            onClick={() => setIsMenuOpen(false)}
-          />
-
-          
-          <div
-            id="Actions"
-            data-node-id="13375:16085"
-            className="relative z-10 h-full w-full flex flex-col items-center justify-center gap-spacing-2xl px-spacing-xl"
-          >
-            <div id="LanguageSelectorWrapper">
-              <LanguageSelector />
-            </div>
-
-            <a href="https://doctorwise.app/" target="_blank" rel="noopener noreferrer" className="inline-block w-full max-w-[150px]">
-              <Button
-                size="sm"
-                hierarchy="primary"
-                icon="arrow_right"
-                iconPosition="right"
-                className="w-full"
-              >
-                {t('ctaAccess')}
-              </Button>
-            </a>
-          </div>
-
-          
-          <div id="NavbarWrapper" data-node-id="13375:16090" className="absolute top-spacing-xl right-spacing-xl z-10">
-            <div
-              id="Navbar"
-              data-node-id="13375:16091"
-              className="size-16 rounded-full border border-border-secondary bg-white/80 backdrop-blur flex items-center justify-center shadow-[0px_1px_2px_0px_rgba(10,13,18,0.05)]"
-            >
-              <div id="Actions" className="flex items-center justify-center">
-                <Button
-                  type="button"
-                  hierarchy="tertiary"
-                  size="sm"
-                  iconOnly
-                  icon="x"
-                  aria-label="Close menu"
-                  className="p-spacing-md"
-                  onClick={() => setIsMenuOpen(false)}
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
     </header>
   );
 }

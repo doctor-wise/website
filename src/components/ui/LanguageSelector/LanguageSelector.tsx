@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { createPortal } from 'react-dom';
+import Image from 'next/image';
 
 export interface LanguageSelectorProps {
   className?: string;
@@ -124,7 +125,7 @@ export function LanguageSelector({
         ref={buttonRef}
         type="button"
         id="language-selector"
-        className={`inline-flex items-center gap-spacing-xs rounded-full border border-border-primary bg-bg-primary px-spacing-lg py-spacing-md text-text-secondary hover:text-text-secondary-hover transition-colors ${className}`}
+        className={`inline-flex items-center justify-center rounded-full border border-border-primary bg-bg-primary p-spacing-md hover:bg-bg-primary-hover transition-colors ${className}`}
         aria-haspopup="listbox"
         aria-expanded={isOpen}
         onClick={handleButtonClick}
@@ -132,16 +133,15 @@ export function LanguageSelector({
         data-node-id="13337:6055"
       >
         <div className="relative shrink-0 size-[20px] overflow-clip">
-          <img
+          <Image
             src={selectedLanguage.flag}
             alt={selectedLanguage.code}
+            width={20}
+            height={20}
             className="block size-full"
+            priority={false}
           />
         </div>
-
-        <span className="text-text-sm font-semibold">
-          {selectedLanguage.label}
-        </span>
       </button>
 
       {mounted && isOpen && createPortal(
@@ -179,10 +179,13 @@ export function LanguageSelector({
                     >
                       <div className="flex gap-spacing-md items-center flex-1" data-name="Icon and text">
                         <div className="relative shrink-0 size-[16px] overflow-clip">
-                          <img
+                          <Image
                             src={language.flag}
                             alt={language.code}
+                            width={16}
+                            height={16}
                             className="block size-full"
+                            priority={false}
                           />
                         </div>
                         <p className="flex-1 font-['Inter:Semibold',_sans-serif] leading-[20px] not-italic relative shrink-0 text-[#414651] text-[14px]" data-node-id="I13337:5827;3281:382848">

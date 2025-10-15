@@ -74,7 +74,7 @@ export function Navbar(): React.ReactElement {
     'bg-transparent',
   ].join(' ');
 
-  const divider = <span className="hidden md:block h-[18px] w-px bg-border-secondary" />;
+  const divider = <span className="hidden" />; // removed divider per new spec
 
   return (
     <header className={wrapperClasses}>
@@ -104,16 +104,6 @@ export function Navbar(): React.ReactElement {
           {/* Desktop actions */}
           <div id="ActionsDesktop" className="hidden md:flex items-center gap-spacing-2xl">
             <LanguageSelector />
-
-            {divider}
-
-            <Link
-              href={`/${currentLocale}/blog`}
-              className="inline-flex items-center gap-[4px] rounded-full border border-border-primary bg-white px-[12px] py-[8px] text-text-secondary hover:text-text-secondary-hover transition-colors"
-            >
-              <span className="text-text-sm font-semibold">{t('blog')}</span>
-              <Icon name="book_open_01" size="sm" className="text-fg-tertiary" aria-label="book-open" />
-            </Link>
 
             <a href="https://doctorwise.app/" target="_blank" rel="noopener noreferrer" className="inline-block">
               <Button size="sm" hierarchy="primary">
@@ -162,6 +152,10 @@ export function Navbar(): React.ReactElement {
             data-node-id="13375:16085"
             className="relative z-10 h-full w-full flex flex-col items-center justify-center gap-spacing-2xl px-spacing-xl"
           >
+            <div id="LanguageSelectorWrapper">
+              <LanguageSelector />
+            </div>
+
             <a href="https://doctorwise.app/" target="_blank" rel="noopener noreferrer" className="inline-block w-full max-w-[150px]">
               <Button
                 size="sm"
@@ -173,22 +167,6 @@ export function Navbar(): React.ReactElement {
                 {t('ctaAccess')}
               </Button>
             </a>
-
-            <Link
-              href={`/${currentLocale}/blog`}
-              className="inline-flex items-center justify-between gap-[4px] rounded-full border border-border-primary bg-white px-[12px] py-[8px] text-text-secondary hover:text-text-secondary-hover transition-colors w-full max-w-[150px]"
-            >
-              <span className="text-text-sm font-semibold">{t('blog')}</span>
-              <Icon name="book_open_01" size="sm" className="text-fg-tertiary" aria-label="book-open" />
-            </Link>
-
-            
-            <div id="Divider" className="w-full max-w-[150px] h-px bg-border-secondary" />
-
-            
-            <div id="LanguageSelectorWrapper" className="w-full max-w-[150px]">
-              <LanguageSelector className="w-full max-w-[150px] justify-start" />
-            </div>
           </div>
 
           

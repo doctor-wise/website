@@ -35,19 +35,19 @@ export function Footer(): React.ReactElement {
               <span className="hidden md:block h-[20px] w-px bg-border-tertiary md:order-2" />
 
               {/* Social links - provided assets from public folder */}
-              <Link href="#" aria-label="Instagram" className="inline-flex items-center gap-spacing-sm text-text-md font-semibold text-text-tertiary hover:text-text-tertiary-hover md:order-3">
+              <Link href="https://www.instagram.com/doctorwise.ai/" aria-label="Instagram" className="inline-flex items-center gap-spacing-sm text-text-md font-semibold text-text-tertiary hover:text-text-tertiary-hover md:order-3" target="_blank" rel="noopener noreferrer">
                 <span className="relative h-[20px] w-[20px]">
                   <Image src="/Assets/Misc-assets/Social-icons/Instagram.svg" alt="" fill sizes="20px" className="object-contain" />
                 </span>
                 <span>Instagram</span>
               </Link>
-              <Link href="#" aria-label="Tiktok" className="inline-flex items-center gap-spacing-sm text-text-md font-semibold text-text-tertiary hover:text-text-tertiary-hover md:order-3">
+              <Link href="https://www.tiktok.com/@doctorwise.ai" aria-label="Tiktok" className="inline-flex items-center gap-spacing-sm text-text-md font-semibold text-text-tertiary hover:text-text-tertiary-hover md:order-3" target="_blank" rel="noopener noreferrer">
                 <span className="relative h-[20px] w-[20px]">
                   <Image src="/Assets/Misc-assets/Social-icons/Tiktok.svg" alt="" fill sizes="20px" className="object-contain" />
                 </span>
                 <span>Tiktok</span>
               </Link>
-              <Link href="#" aria-label="Linkedin" className="inline-flex items-center gap-spacing-sm text-text-md font-semibold text-text-tertiary hover:text-text-tertiary-hover md:order-3">
+              <Link href="https://www.linkedin.com/company/doctor-wise/" aria-label="Linkedin" className="inline-flex items-center gap-spacing-sm text-text-md font-semibold text-text-tertiary hover:text-text-tertiary-hover md:order-3" target="_blank" rel="noopener noreferrer">
                 <span className="relative h-[20px] w-[20px]">
                   <Image src="/Assets/Misc-assets/Social-icons/Linkedin.svg" alt="" fill sizes="20px" className="object-contain" />
                 </span>

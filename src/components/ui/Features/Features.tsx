@@ -18,13 +18,13 @@ export function Features(): React.ReactElement {
   return (
     <section id="features-section" className="w-full max-w-3xl mx-auto bg-bg-primary border-t border-border-secondary rounded-t-5xl">
 
-      <div id="feature-cards-wrapper" className="mx-auto w-full max-w-3xl px-spacing-md py-spacing-3xl grid grid-cols-1 lg:grid-cols-2 gap-spacing-3xl lg:px-spacing-4xl lg:py-spacing-7xl lg:gap-spacing-4xl items-stretch">
+      <div id="feature-cards-wrapper" className="mx-auto w-full max-w-3xl px-spacing-md py-spacing-3xl grid grid-cols-1 lg:grid-cols-2 gap-spacing-3xl lg:px-spacing-7xl lg:py-spacing-7xl lg:gap-spacing-4xl items-stretch">
 
         {/* Left column: Title and reference card */}
         <div id="left-column" className="flex flex-col gap-spacing-4xl justify-between">
 
           <div id="created-by-heading" className="">
-            <Heading as="h2" size="display-xs" align="center" weight="semibold" color="secondary" className="lg:text-display-md">
+            <Heading as="h2" size="display-xs" align="center" weight="semibold" color="secondary" className="lg:text-display-md lg:text-left">
               {t.rich('heading', { br: () => <br />, highlight: (c) => (<span className="text-text-brand-tertiary-alt">{c}</span>) })}
             </Heading>
           </div>

@@ -131,8 +131,12 @@ export function Pricing(): React.ReactElement {
           </div>
 
           <div id="pricing_actions" className="w-full flex items-center justify-center gap-spacing-lg">
-            <Button hierarchy="secondary" icon="message_square_01" iconPosition="right">{t('ctaEnterprise')}</Button>
-            <Button hierarchy="primary" icon="arrow_right" iconPosition="right">{t('ctaAccess')}</Button>
+            <a href="mailto:team@doctorwise.com.br" className="inline-block">
+              <Button hierarchy="secondary" icon="message_square_01" iconPosition="right">{t('ctaEnterprise')}</Button>
+            </a>
+            <a href="https://doctorwise.app/" target="_blank" rel="noopener noreferrer" className="inline-block">
+              <Button hierarchy="primary" icon="arrow_right" iconPosition="right">{t('ctaAccess')}</Button>
+            </a>
           </div>
 
         </div>

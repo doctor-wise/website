@@ -115,12 +115,14 @@ export function Navbar(): React.ReactElement {
               <Icon name="book_open_01" size="sm" className="text-fg-tertiary" aria-label="book-open" />
             </Link>
 
-            <Button size="sm" hierarchy="primary" as={Link} href={`/${currentLocale}/signup`}>
-              <span className="inline-flex items-center gap-[4px] text-text-sm font-semibold">
-                {t('ctaAccess')}
-                <Icon name="arrow_right" size="sm" className="text-text-white" aria-label="arrow-right" />
-              </span>
-            </Button>
+            <a href="https://doctorwise.app/" target="_blank" rel="noopener noreferrer" className="inline-block">
+              <Button size="sm" hierarchy="primary">
+                <span className="inline-flex items-center gap-[4px] text-text-sm font-semibold">
+                  {t('ctaAccess')}
+                  <Icon name="arrow_right" size="sm" className="text-text-white" aria-label="arrow-right" />
+                </span>
+              </Button>
+            </a>
           </div>
 
           {/* Mobile menu icon (visual only) */}
@@ -160,17 +162,17 @@ export function Navbar(): React.ReactElement {
             data-node-id="13375:16085"
             className="relative z-10 h-full w-full flex flex-col items-center justify-center gap-spacing-2xl px-spacing-xl"
           >
-            <Button
-              size="sm"
-              hierarchy="primary"
-              as={Link}
-              href={`/${currentLocale}/signup`}
-              icon="arrow_right"
-              iconPosition="right"
-              className="w-full max-w-[150px]"
-            >
-              {t('ctaAccess')}
-            </Button>
+            <a href="https://doctorwise.app/" target="_blank" rel="noopener noreferrer" className="inline-block w-full max-w-[150px]">
+              <Button
+                size="sm"
+                hierarchy="primary"
+                icon="arrow_right"
+                iconPosition="right"
+                className="w-full"
+              >
+                {t('ctaAccess')}
+              </Button>
+            </a>
 
             <Link
               href={`/${currentLocale}/blog`}

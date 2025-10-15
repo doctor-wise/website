@@ -68,11 +68,11 @@ export function Hero(): React.ReactElement {
                 {/* App store badges (from Misc assets) */}
                 <div className="flex items-center gap-spacing-lg">
                   {/* Figma: Mobile app store badge (Google Play) */}
-                  <a id="hero_google-play-badge" href="#" aria-label="Get it on Google Play" className="block h-[35px] w-[120px]">
+                  <a id="hero_google-play-badge" href="https://play.google.com/store/apps/details?id=app.doctorwise.www.twa&hl=pt_BR" aria-label="Get it on Google Play" className="block h-[35px] w-[120px]" target="_blank" rel="noopener noreferrer">
                     <Image src="/Assets/Misc-assets/play-store-badge.svg" alt="Google Play" width={120} height={35} />
                   </a>
                   {/* Figma: Mobile app store badge (App Store) */}
-                  <a id="hero_app-store-badge" href="#" aria-label="Download on the App Store" className="block h-[35px] w-[106px]">
+                  <a id="hero_app-store-badge" href="https://apps.apple.com/br/app/doctor-wise/id6468839406" aria-label="Download on the App Store" className="block h-[35px] w-[106px]" target="_blank" rel="noopener noreferrer">
                     <Image src="/Assets/Misc-assets/app-store-badge.svg" alt="App Store" width={106} height={35} />
                   </a>
                 </div>

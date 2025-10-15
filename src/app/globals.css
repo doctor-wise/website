@@ -666,3 +666,14 @@ html {
     line-height: var(--lineHeight-text-xl);
   }
 }
+
+/* Responsive typography utility for Features heading
+   Enables class usage: lg:text-display-md alongside base text-display-xs */
+@media (min-width: 1024px) {
+  .lg\:text-display-md {
+    font-size: var(--fontSize-display-md);
+    line-height: var(--lineHeight-display-md);
+    letter-spacing: var(--letterSpacing-display-md);
+    font-family: var(--font-family-display);
+  }
+}

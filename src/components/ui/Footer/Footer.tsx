@@ -16,53 +16,53 @@ import {useTranslations} from 'next-intl';
 export function Footer(): React.ReactElement {
   const t = useTranslations('Footer');
   return (
-    <footer id="Footer" className="bg-bg-primary w-full overflow-x-hidden" data-node-id="13378:16780">
+    <footer id="Footer" className="bg-bg-primary w-full overflow-x-hidden" data-node-id="13298:8763">
       {/* Container */}
-      <div className="mx-auto w-full max-w-3xl px-spacing-xl py-spacing-6xl md:px-spacing-6xl md:py-spacing-7xl">
-        <div className="flex flex-col gap-spacing-6xl">
+      <div className="mx-auto w-full max-w-3xl px-spacing-xl py-spacing-6xl md:px-spacing-7xl md:pt-spacing-7xl md:pb-spacing-6xl">
+        <div className="flex flex-col gap-spacing-7xl">
           {/* Top: logo + links (stacked on mobile) */}
-          <div id="Footer_top" className="flex flex-col gap-spacing-4xl md:flex-row md:items-center md:justify-between w-full">
+          <div id="Footer_top" className="flex flex-col gap-spacing-4xl md:flex-row md:items-center md:justify-between w-full md:min-w-[560px]">
             <LogoMark size="md" />
 
             <div id="Footer_links" className="flex flex-wrap items-center gap-spacing-4xl w-full md:w-auto">
+              {/* Ambassador link - first on desktop, last on mobile */}
+              <Link href="#" className="inline-flex items-center gap-spacing-sm text-text-md font-semibold text-text-tertiary hover:text-text-tertiary-hover order-last md:order-1">
+                <Icon name="users_plus" size="md" className="text-fg-quaternary" aria-label="users-plus" />
+                <span>{t('ambassador')}</span>
+              </Link>
+
+              {/* Divider visible only on desktop, sits between ambassador and socials */}
+              <span className="hidden md:block h-[20px] w-px bg-border-tertiary md:order-2" />
+
               {/* Social links - provided assets from public folder */}
-              <Link href="#" aria-label="Instagram" className="inline-flex items-center gap-spacing-sm text-text-md font-semibold text-text-tertiary hover:text-text-tertiary-hover">
+              <Link href="#" aria-label="Instagram" className="inline-flex items-center gap-spacing-sm text-text-md font-semibold text-text-tertiary hover:text-text-tertiary-hover md:order-3">
                 <span className="relative h-[20px] w-[20px]">
                   <Image src="/Assets/Misc-assets/Social-icons/Instagram.svg" alt="" fill sizes="20px" className="object-contain" />
                 </span>
                 <span>Instagram</span>
               </Link>
-              <Link href="#" aria-label="Tiktok" className="inline-flex items-center gap-spacing-sm text-text-md font-semibold text-text-tertiary hover:text-text-tertiary-hover">
+              <Link href="#" aria-label="Tiktok" className="inline-flex items-center gap-spacing-sm text-text-md font-semibold text-text-tertiary hover:text-text-tertiary-hover md:order-3">
                 <span className="relative h-[20px] w-[20px]">
                   <Image src="/Assets/Misc-assets/Social-icons/Tiktok.svg" alt="" fill sizes="20px" className="object-contain" />
                 </span>
                 <span>Tiktok</span>
               </Link>
-              <Link href="#" aria-label="Linkedin" className="inline-flex items-center gap-spacing-sm text-text-md font-semibold text-text-tertiary hover:text-text-tertiary-hover">
+              <Link href="#" aria-label="Linkedin" className="inline-flex items-center gap-spacing-sm text-text-md font-semibold text-text-tertiary hover:text-text-tertiary-hover md:order-3">
                 <span className="relative h-[20px] w-[20px]">
                   <Image src="/Assets/Misc-assets/Social-icons/Linkedin.svg" alt="" fill sizes="20px" className="object-contain" />
                 </span>
                 <span>Linkedin</span>
               </Link>
-
-              {/* Divider visible only on desktop */}
-              <span className="hidden md:block h-[20px] w-px bg-border-tertiary" />
-
-              {/* Ambassador link */}
-              <Link href="#" className="inline-flex items-center gap-spacing-sm text-text-md font-semibold text-text-tertiary hover:text-text-tertiary-hover">
-                <Icon name="users_plus" size="md" className="text-fg-quaternary" aria-label="users-plus" />
-                <span>{t('ambassador')}</span>
-              </Link>
             </div>
           </div>
 
           {/* Bottom: divider + policies + legal (stacked on mobile) */}
-          <div id="Footer_bottom" className="border-t border-border-secondary pt-spacing-4xl flex flex-col gap-spacing-3xl text-text-md text-text-quaternary w-full">
-            <div id="Footer_policies" className="flex items-center justify-between w-full flex-wrap gap-spacing-xl">
+          <div id="Footer_bottom" className="border-t border-border-secondary pt-spacing-4xl flex flex-col gap-spacing-3xl text-text-md text-text-quaternary w-full md:flex-row md:items-center md:justify-between md:flex-nowrap md:gap-spacing-none">
+            <div id="Footer_policies" className="flex items-center w-full flex-wrap gap-spacing-xl md:w-auto md:ml-auto md:justify-end md:order-2 md:flex-nowrap">
               <Link href="#">{t('privacy')}</Link>
               <Link href="#">{t('terms')}</Link>
             </div>
-            <p className="text-text-md text-text-quaternary">
+            <p className="text-text-md text-text-quaternary md:order-1">
               {t('copyright')}
             </p>
           </div>

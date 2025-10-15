@@ -45,11 +45,12 @@ export function Pricing(): React.ReactElement {
     <section id="pricing_section" className="w-full max-w-3xl mx-auto bg-bg-primary flex flex-col items-center">
 
       <div id="pricing_hero_box" className="w-full bg-bg-primary border-t border-border-secondary rounded-t-5xl overflow-hidden">
-        <div className="w-full flex flex-col items-center gap-spacing-3xl pt-spacing-7xl pb-spacing-6xl px-spacing-8xl">
+        <div className="w-full flex flex-col items-center gap-spacing-3xl pt-spacing-5xl pb-spacing-4xl px-spacing-md lg:pt-spacing-7xl lg:pb-spacing-6xl lg:px-spacing-8xl">
 
           <div id="pricing_header" className="flex flex-col items-center gap-spacing-xl">
             <LogoMark size="md" />
-            <Heading as="h3" size="display-md" weight="semibold" align="center" color="secondary">{t('heading')}</Heading>
+            <Heading as="h3" size="display-xs" weight="semibold" align="center" color="secondary" className="block lg:hidden">{t('heading')}</Heading>
+            <Heading as="h3" size="display-md" weight="semibold" align="center" color="secondary" className="hidden lg:block">{t('heading')}</Heading>
             <Text as="p" size="sm" color="secondary" align="center">{t('sub')}</Text>
           </div>
 
@@ -62,10 +63,10 @@ export function Pricing(): React.ReactElement {
             />
           </div>
 
-          <div id="pricing_cards_wrapper" className="w-full flex gap-spacing-2xl items-stretch">
+          <div id="pricing_cards_wrapper" className="w-full flex flex-col gap-spacing-3xl lg:flex-row lg:gap-spacing-2xl items-stretch">
 
-            <div id="pricing_card_free" className="flex-1 bg-bg-primary border border-border-secondary rounded-5xl">
-              <div className="p-spacing-4xl flex flex-col gap-spacing-4xl items-start">
+            <div id="pricing_card_free" className="order-3 lg:order-1 flex-1 bg-bg-primary border border-border-secondary rounded-5xl">
+              <div className="p-spacing-3xl lg:p-spacing-4xl flex flex-col gap-spacing-3xl lg:gap-spacing-4xl items-start">
                 <div id="tag_wrapper_free" className="h-8 flex items-center">
                   <Image src="/Assets/Misc-assets/Plan-tags/FREE-tag.svg" alt={t('free')} width={100} height={32} className="h-8 w-auto" />
                 </div>
@@ -82,8 +83,8 @@ export function Pricing(): React.ReactElement {
               </div>
             </div>
 
-            <div id="pricing_card_plus" className="flex-1 bg-bg-primary border border-border-secondary rounded-5xl">
-              <div className="p-spacing-4xl flex flex-col gap-spacing-4xl items-start">
+            <div id="pricing_card_plus" className="order-2 lg:order-2 flex-1 bg-bg-primary border border-border-secondary rounded-5xl">
+              <div className="p-spacing-3xl lg:p-spacing-4xl flex flex-col gap-spacing-3xl lg:gap-spacing-4xl items-start">
                 <div id="tag_plus" className="h-8 inline-flex items-center">
                   <Image src="/Assets/Misc-assets/Plan-tags/PLUS-tag.svg" alt="PLUS" width={100} height={32} className="h-8 w-auto" />
                 </div>
@@ -104,8 +105,8 @@ export function Pricing(): React.ReactElement {
               </div>
             </div>
 
-            <div id="pricing_card_pro" className="flex-1 bg-bg-primary border border-border-secondary rounded-5xl">
-              <div className="p-spacing-4xl flex flex-col gap-spacing-4xl items-start">
+            <div id="pricing_card_pro" className="order-1 lg:order-3 flex-1 bg-bg-primary border border-border-secondary rounded-5xl">
+              <div className="p-spacing-3xl lg:p-spacing-4xl flex flex-col gap-spacing-3xl lg:gap-spacing-4xl items-start">
                 <div id="tag_pro" className="h-8 inline-flex items-center">
                   <Image src="/Assets/Misc-assets/Plan-tags/PRO-tag.svg" alt="PRO" width={100} height={32} className="h-8 w-auto" />
                 </div>

@@ -19,7 +19,10 @@ export function Footer(): React.ReactElement {
   const pathname = usePathname();
   const currentLocale = React.useMemo(() => {
     const parts = pathname?.split('/').filter(Boolean) ?? [];
-    return parts[0] === 'en' ? 'en' : 'pt';
+    const locale = parts[0];
+    if (locale === 'en') return 'en';
+    if (locale === 'es') return 'es';
+    return 'pt';
   }, [pathname]);
   return (
     <footer id="Footer" className="bg-bg-primary w-full overflow-x-hidden" data-node-id="13298:8763">

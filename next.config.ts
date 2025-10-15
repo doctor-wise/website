@@ -17,6 +17,20 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  async redirects() {
+    return [
+      {
+        source: '/politica-de-privacidade',
+        destination: '/pt/politica-de-privacidade',
+        permanent: true,
+      },
+      {
+        source: '/termos-de-uso',
+        destination: '/pt/termos-de-uso',
+        permanent: true,
+      },
+    ];
+  },
 };
 const withNextIntl = createNextIntlPlugin();
 export default withNextIntl(nextConfig);

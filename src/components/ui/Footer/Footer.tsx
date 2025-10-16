@@ -2,6 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
+import { Link as I18nLink } from '@/i18n/routing';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { Icon } from '@/components/icons';
@@ -16,14 +17,7 @@ import {useTranslations} from 'next-intl';
  */
 export function Footer(): React.ReactElement {
   const t = useTranslations('Footer');
-  const pathname = usePathname();
-  const currentLocale = React.useMemo(() => {
-    const parts = pathname?.split('/').filter(Boolean) ?? [];
-    const locale = parts[0];
-    if (locale === 'en') return 'en';
-    if (locale === 'es') return 'es';
-    return 'pt';
-  }, [pathname]);
+  usePathname();
   return (
     <footer id="Footer" className="bg-bg-primary w-full overflow-x-hidden" data-node-id="13298:8763">
       {/* Container */}
@@ -68,8 +62,8 @@ export function Footer(): React.ReactElement {
           {/* Bottom: divider + policies + legal (stacked on mobile) */}
           <div id="Footer_bottom" className="border-t border-border-secondary pt-spacing-4xl flex flex-col gap-spacing-3xl text-text-md text-text-quaternary w-full md:flex-row md:items-center md:justify-between md:flex-nowrap md:gap-spacing-none">
             <div id="Footer_policies" className="flex items-center w-full flex-wrap gap-spacing-xl md:w-auto md:ml-auto md:justify-end md:order-2 md:flex-nowrap">
-              <Link href={`/${currentLocale}/politica-de-privacidade`}>{t('privacy')}</Link>
-              <Link href={`/${currentLocale}/termos-de-uso`}>{t('terms')}</Link>
+              <I18nLink href="/privacy-policy">{t('privacy')}</I18nLink>
+              <I18nLink href="/terms-of-use">{t('terms')}</I18nLink>
             </div>
             <p className="text-text-md text-text-quaternary md:order-1">
               {t('copyright')}

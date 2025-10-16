@@ -1,23 +1,18 @@
 import type { Metadata } from 'next';
-import { Geist, Geist_Mono } from 'next/font/google';
 import { NextIntlClientProvider } from 'next-intl';
-import { getMessages } from 'next-intl/server';
-import '../globals.css';
+import { setRequestLocale } from 'next-intl/server';
+import type { ReactNode } from 'react';
 import { Footer } from '@/components/ui';
 import { getTranslations } from 'next-intl/server';
 
-const geistSans = Geist({
-  variable: '--font-geist-sans',
-  subsets: ['latin'],
-});
+// Fonts & global body classes are handled in the root layout
 
-const geistMono = Geist_Mono({
-  variable: '--font-geist-mono',
-  subsets: ['latin'],
-});
-
-export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
-  const { locale } = await params as { locale: 'pt' | 'en' | 'es' };
+export async function generateMetadata({
+  params
+}: {
+  params: Promise<{ locale: 'pt' | 'en' | 'es' }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
   const t = await getTranslations({ locale, namespace: 'Meta' });
   
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://doctorwise.com';
@@ -85,27 +80,18 @@ export default async function RootLayout({
   children,
   params,
 }: Readonly<{
-  children: React.ReactNode;
-  params: Promise<{ locale: string }>;
+  children: ReactNode;
+  params: Promise<{ locale: 'pt' | 'en' | 'es' }>;
 }>) {
-  const { locale } = await params as { locale: 'pt' | 'en' | 'es' };
-  const htmlLangMap: Record<'pt' | 'en' | 'es', string> = {
-    pt: 'pt-BR',
-    en: 'en',
-    es: 'es',
-  };
-  const htmlLang = htmlLangMap[locale];
-  const messages = await getMessages({ locale });
+  const { locale } = await params;
+  setRequestLocale(locale);
+  const messages = (await import(`../../../messages/${locale}.json`)).default;
   return (
-    <html lang={htmlLang}>
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased overflow-x-hidden`}>
-        <NextIntlClientProvider key={locale} locale={locale} messages={messages}>
-          {children}
-          {/* Global footer */}
-          <Footer />
-        </NextIntlClientProvider>
-      </body>
-    </html>
+    <NextIntlClientProvider key={locale} locale={locale} messages={messages}>
+      {children}
+      {/* Global footer */}
+      <Footer />
+    </NextIntlClientProvider>
   );
 }
 

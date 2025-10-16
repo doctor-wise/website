@@ -5,12 +5,10 @@ import { PrivacyPolicyContentEN } from './PrivacyPolicyContentEN';
 import { PrivacyPolicyContentES } from './PrivacyPolicyContentES';
 
 interface PrivacyPolicyPageProps {
-  params: Promise<{ locale: 'pt' | 'en' | 'es' }>;
+  params: { locale: 'pt' | 'en' | 'es' };
 }
 
-export default async function PoliticaDePrivacidadePage({ params }: PrivacyPolicyPageProps) {
-  const { locale } = await params;
-
+export default async function PrivacyPolicyPage({ params: { locale } }: PrivacyPolicyPageProps) {
   const renderContent = () => {
     switch (locale) {
       case 'en':
@@ -32,3 +30,5 @@ export default async function PoliticaDePrivacidadePage({ params }: PrivacyPolic
     </main>
   );
 }
+
+

@@ -54,7 +54,10 @@ export function Hero(): React.ReactElement {
 
                   {/* Figma: Title & subtitile / Supporting text */}
                   <Text as="p" align="center" className="hero-subtitle text-text-tertiary lg:text-text-secondary max-w-[426px] mx-auto lg:text-left">
-                  {t('subtitle')}
+                    {t.rich('subtitle', {
+                      br: () => <br />,
+                      strong: (chunks) => <strong>{chunks}</strong>,
+                    })}
                   </Text>
                 </div>
               </div>

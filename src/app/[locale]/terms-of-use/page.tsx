@@ -5,12 +5,10 @@ import { TermsOfUseContentEN } from './TermsOfUseContentEN';
 import { TermsOfUseContentES } from './TermsOfUseContentES';
 
 interface TermsOfUsePageProps {
-  params: Promise<{ locale: 'pt' | 'en' | 'es' }>;
+  params: { locale: 'pt' | 'en' | 'es' };
 }
 
-export default async function TermosDeUsoPage({ params }: TermsOfUsePageProps) {
-  const { locale } = await params;
-
+export default async function TermsOfUsePage({ params: { locale } }: TermsOfUsePageProps) {
   const renderContent = () => {
     switch (locale) {
       case 'en':
@@ -32,4 +30,5 @@ export default async function TermosDeUsoPage({ params }: TermsOfUsePageProps) {
     </main>
   );
 }
+
 

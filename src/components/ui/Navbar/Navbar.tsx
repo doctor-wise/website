@@ -1,8 +1,7 @@
 'use client';
 
 import React from 'react';
-import Link from 'next/link';
-import {usePathname} from 'next/navigation';
+import { Link as I18nLink } from '@/i18n/routing';
 import {useTranslations} from 'next-intl';
 import { Icon } from '@/components/icons';
 import { LogoDefault } from '../Logo/LogoDefault';
@@ -16,12 +15,7 @@ import { LanguageSelector } from '../LanguageSelector';
  */
 export function Navbar(): React.ReactElement {
   const [isScrolled, setIsScrolled] = React.useState(false);
-  const pathname = usePathname();
   const t = useTranslations('Navbar');
-  const currentLocale = React.useMemo(() => {
-    const parts = pathname?.split('/').filter(Boolean) ?? [];
-    return parts[0] === 'en' ? 'en' : 'pt';
-  }, [pathname]);
 
   const ctaFull = t('ctaAccess');
   const shortCta = React.useMemo(() => ctaFull.replace(/\s+(grátis|free|gratis)$/i, ''), [ctaFull]);
@@ -64,14 +58,14 @@ export function Navbar(): React.ReactElement {
               : 'md:pl-spacing-3xl md:pr-spacing-2xl md:bg-transparent md:border md:border-transparent md:shadow-none md:mx-0',
           ].join(' ')}
         >
-          <Link href={`/${currentLocale}`} aria-label="Doctor Wise - Home" className="inline-flex items-center">
+          <I18nLink href="/" aria-label="Doctor Wise - Home" className="inline-flex items-center">
             <span className="inline-flex md:hidden">
               <LogoDefault variant="light" size="sm" />
             </span>
             <span className="hidden md:inline-flex">
               <LogoDefault variant="light" size="md" />
             </span>
-          </Link>
+          </I18nLink>
 
           {/* Actions */}
           <div id="Actions" className="flex items-center gap-spacing-md md:gap-spacing-2xl">

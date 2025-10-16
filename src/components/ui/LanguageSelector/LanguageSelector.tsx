@@ -3,6 +3,8 @@
 import React from 'react';
 import { createPortal } from 'react-dom';
 import Image from 'next/image';
+import { useRouter, usePathname } from '@/i18n/routing';
+import { useLocale } from 'next-intl';
 
 export interface LanguageSelectorProps {
   className?: string;
@@ -23,21 +25,20 @@ const availableLanguages: Language[] = [
 export function LanguageSelector({
   className = '',
 }: LanguageSelectorProps): React.ReactElement {
-  const [selectedLanguage, setSelectedLanguage] = React.useState<Language>(availableLanguages[0]);
+  const locale = useLocale();
+  const router = useRouter();
+  const pathname = usePathname();
+  const [selectedLanguage, setSelectedLanguage] = React.useState<Language>(availableLanguages.find(l => l.code === locale) ?? availableLanguages[0]);
   const [isOpen, setIsOpen] = React.useState(false);
   const [mounted, setMounted] = React.useState(false);
   const [coords, setCoords] = React.useState<{ top: number; left: number } | null>(null);
 
   const buttonRef = React.useRef<HTMLButtonElement | null>(null);
   const dropdownRef = React.useRef<HTMLDivElement | null>(null);
-  const pathname = typeof window !== 'undefined' ? window.location.pathname : '/pt';
-
   React.useEffect(() => {
-    const parts = pathname.split('/').filter(Boolean);
-    const currentLocale = parts[0];
-    const found = availableLanguages.find((l) => l.code === currentLocale) ?? availableLanguages[0];
+    const found = availableLanguages.find((l) => l.code === locale) ?? availableLanguages[0];
     setSelectedLanguage(found);
-  }, [pathname]);
+  }, [locale]);
 
   const displayedLanguages = availableLanguages.filter((lang) => lang.code !== selectedLanguage.code);
 
@@ -102,17 +103,8 @@ export function LanguageSelector({
   const handleLanguageSelect = (language: Language) => {
     setSelectedLanguage(language);
     setIsOpen(false);
-    // Navigate to same path under selected locale prefix
-    try {
-      const parts = pathname.split('/').filter(Boolean);
-      const validLocales = ['pt', 'en', 'es'];
-      if (parts.length > 0 && validLocales.includes(parts[0])) parts.shift();
-      const basePath = '/' + parts.join('/');
-      const target = `/${language.code}${basePath}`;
-      window.location.assign(target);
-    } finally {
-      buttonRef.current?.focus();
-    }
+    router.replace(pathname, { locale: language.code });
+    buttonRef.current?.focus();
   };
 
   const handleButtonClick = () => {

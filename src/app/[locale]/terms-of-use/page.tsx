@@ -4,11 +4,8 @@ import { TermsOfUseContent } from './TermsOfUseContent';
 import { TermsOfUseContentEN } from './TermsOfUseContentEN';
 import { TermsOfUseContentES } from './TermsOfUseContentES';
 
-interface TermsOfUsePageProps {
-  params: { locale: 'pt' | 'en' | 'es' };
-}
-
-export default async function TermsOfUsePage({ params: { locale } }: TermsOfUsePageProps) {
+export default async function TermsOfUsePage({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
   const renderContent = () => {
     switch (locale) {
       case 'en':

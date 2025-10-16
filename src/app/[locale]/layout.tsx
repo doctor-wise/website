@@ -10,13 +10,16 @@ import { getTranslations } from 'next-intl/server';
 export async function generateMetadata({
   params
 }: {
-  params: Promise<{ locale: 'pt' | 'en' | 'es' }>;
+  params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: 'Meta' });
+  const supportedLocales = ['pt', 'en', 'es'] as const;
+  type SupportedLocale = (typeof supportedLocales)[number];
+  const selectedLocale = (supportedLocales.includes(locale as SupportedLocale) ? (locale as SupportedLocale) : 'pt');
+  const t = await getTranslations({ locale: selectedLocale, namespace: 'Meta' });
   
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://doctorwise.com';
-  const currentUrl = `${baseUrl}/${locale}`;
+  const currentUrl = `${baseUrl}/${selectedLocale}`;
   
   const localeMap = {
     pt: 'pt_BR',
@@ -50,7 +53,7 @@ export async function generateMetadata({
     },
     openGraph: {
       type: 'website',
-      locale: localeMap[locale],
+      locale: localeMap[selectedLocale],
       url: currentUrl,
       siteName: 'Doctor Wise',
       title: t('title'),
@@ -81,13 +84,16 @@ export default async function RootLayout({
   params,
 }: Readonly<{
   children: ReactNode;
-  params: Promise<{ locale: 'pt' | 'en' | 'es' }>;
+  params: Promise<{ locale: string }>;
 }>) {
   const { locale } = await params;
-  setRequestLocale(locale);
-  const messages = (await import(`../../../messages/${locale}.json`)).default;
+  const supportedLocales = ['pt', 'en', 'es'] as const;
+  type SupportedLocale = (typeof supportedLocales)[number];
+  const selectedLocale = (supportedLocales.includes(locale as SupportedLocale) ? (locale as SupportedLocale) : 'pt');
+  setRequestLocale(selectedLocale);
+  const messages = (await import(`../../../messages/${selectedLocale}.json`)).default;
   return (
-    <NextIntlClientProvider key={locale} locale={locale} messages={messages}>
+    <NextIntlClientProvider key={selectedLocale} locale={selectedLocale} messages={messages}>
       {children}
       {/* Global footer */}
       <Footer />

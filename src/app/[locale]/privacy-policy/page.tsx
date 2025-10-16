@@ -4,11 +4,8 @@ import { PrivacyPolicyContentPT } from './PrivacyPolicyContentPT';
 import { PrivacyPolicyContentEN } from './PrivacyPolicyContentEN';
 import { PrivacyPolicyContentES } from './PrivacyPolicyContentES';
 
-interface PrivacyPolicyPageProps {
-  params: { locale: 'pt' | 'en' | 'es' };
-}
-
-export default async function PrivacyPolicyPage({ params: { locale } }: PrivacyPolicyPageProps) {
+export default async function PrivacyPolicyPage({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
   const renderContent = () => {
     switch (locale) {
       case 'en':

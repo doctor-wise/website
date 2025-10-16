@@ -7,6 +7,7 @@ export const routing = defineRouting({
   // Always include the locale prefix, including for the default locale
   localePrefix: 'always',
   pathnames: {
+    '/': '/',
     '/privacy-policy': {
       pt: '/politica-de-privacidade',
       en: '/privacy-policy',

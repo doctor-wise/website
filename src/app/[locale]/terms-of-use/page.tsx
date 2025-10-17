@@ -1,6 +1,6 @@
 import React from 'react';
 import { Navbar } from '@/components/ui';
-import { TermsOfUseContent } from './TermsOfUseContent';
+import { TermsOfUseContentPT } from './TermsOfUseContentPT';
 import { TermsOfUseContentEN } from './TermsOfUseContentEN';
 import { TermsOfUseContentES } from './TermsOfUseContentES';
 
@@ -8,12 +8,12 @@ export default async function TermsOfUsePage({ params }: { params: Promise<{ loc
   const { locale } = await params;
   const renderContent = () => {
     switch (locale) {
-      case 'en':
-        return <TermsOfUseContentEN />;
+      case 'pt':
+        return <TermsOfUseContentPT />;
       case 'es':
         return <TermsOfUseContentES />;
       default:
-        return <TermsOfUseContent />;
+        return <TermsOfUseContentEN />;
     }
   };
 

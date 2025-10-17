@@ -9,14 +9,14 @@ export const routing = defineRouting({
   pathnames: {
     '/': '/',
     '/privacy-policy': {
-      pt: '/politica-de-privacidade',
+      pt: '/privacy-policy',
       en: '/privacy-policy',
-      es: '/politica-de-privacidad'
+      es: '/privacy-policy'
     },
     '/terms-of-use': {
-      pt: '/termos-de-uso',
+      pt: '/terms-of-use',
       en: '/terms-of-use',
-      es: '/terminos-de-uso'
+      es: '/terms-of-use'
     }
   }
 });

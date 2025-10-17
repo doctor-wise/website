@@ -21,12 +21,45 @@ const nextConfig: NextConfig = {
     return [
       {
         source: '/politica-de-privacidade',
-        destination: '/pt/politica-de-privacidade',
+        destination: '/pt/privacy-policy',
         permanent: true,
       },
       {
         source: '/termos-de-uso',
-        destination: '/pt/termos-de-uso',
+        destination: '/pt/terms-of-use',
+        permanent: true,
+      },
+      // Locale-prefixed PT legacy slugs
+      {
+        source: '/pt/politica-de-privacidade',
+        destination: '/pt/privacy-policy',
+        permanent: true,
+      },
+      {
+        source: '/pt/termos-de-uso',
+        destination: '/pt/terms-of-use',
+        permanent: true,
+      },
+      // Spanish old slugs to new English-based paths (with locale prefix)
+      {
+        source: '/politica-de-privacidad',
+        destination: '/es/privacy-policy',
+        permanent: true,
+      },
+      {
+        source: '/terminos-de-uso',
+        destination: '/es/terms-of-use',
+        permanent: true,
+      },
+      // Locale-prefixed ES legacy slugs
+      {
+        source: '/es/politica-de-privacidad',
+        destination: '/es/privacy-policy',
+        permanent: true,
+      },
+      {
+        source: '/es/terminos-de-uso',
+        destination: '/es/terms-of-use',
         permanent: true,
       },
     ];

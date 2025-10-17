@@ -1,7 +1,7 @@
 import React from 'react';
 import { Heading, Text } from '@/components/ui/Typography';
 
-export function TermsOfUseContent() {
+export function TermsOfUseContentPT() {
   return (
     <div className="flex flex-col gap-spacing-4xl">
       

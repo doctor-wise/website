@@ -28,7 +28,7 @@ export function Features(): React.ReactElement {
               {t.rich('heading', { br: () => <br />, highlight: (c) => (<span className="text-text-brand-tertiary-alt">{c}</span>) })}
             </Heading>
 
-            <Text as="p" size="xl" align="center" color="tertiary" className="lg:text-left">
+            <Text as="p" align="center" color="tertiary" className="hero-subtitle lg:text-left">
               {t('description')}
             </Text>
           </div>

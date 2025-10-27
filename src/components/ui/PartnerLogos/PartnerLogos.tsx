@@ -16,7 +16,7 @@ export function PartnerLogos(): React.ReactElement {
   return (
     <section 
       id="social_proof_section" 
-      className="w-full bg-bg-secondary flex items-start justify-center px-spacing-none py-spacing-3xl"
+      className="hidden w-full bg-bg-secondary flex items-start justify-center px-spacing-none py-spacing-3xl"
       data-node-id="13298:8651"
     >
       <div 

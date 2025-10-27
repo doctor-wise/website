@@ -23,10 +23,14 @@ export function Features(): React.ReactElement {
         {/* Left column: Title and reference card */}
         <div id="left-column" className="flex flex-col gap-spacing-4xl justify-between">
 
-          <div id="created-by-heading" className="">
+          <div id="text-wrapper" className="flex flex-col gap-spacing-xl">
             <Heading as="h2" size="display-xs" align="center" weight="semibold" color="secondary" className="lg:text-display-md lg:text-left">
               {t.rich('heading', { br: () => <br />, highlight: (c) => (<span className="text-text-brand-tertiary-alt">{c}</span>) })}
             </Heading>
+
+            <Text as="p" size="xl" align="center" color="tertiary" className="lg:text-left">
+              {t('description')}
+            </Text>
           </div>
 
           <div id="feature-card-left" className="bg-bg-primary border border-border-secondary rounded-4xl lg:rounded-6xl p-spacing-xl lg:p-spacing-4xl flex flex-col items-center gap-spacing-lg">

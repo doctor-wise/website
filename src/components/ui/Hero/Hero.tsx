@@ -6,6 +6,8 @@ import { Heading } from '@/components/ui/Typography/Heading';
 import { Text } from '@/components/ui/Typography/Text';
 import {useTranslations} from 'next-intl';
 import { PartnerLogos } from '@/components/ui/PartnerLogos';
+import { Button } from '@/components/ui/Button';
+import { Icon } from '@/components/icons';
 
 // Local assets (served from public/images)
 const IPHONE_IMG_MOBILE = '/images/hero_iphone-mock-mobile.png';
@@ -60,6 +62,13 @@ export function Hero(): React.ReactElement {
                     })}
                   </Text>
                 </div>
+
+                {/* CTA Button */}
+                <a href="https://doctorwise.app/" target="_blank" rel="noopener noreferrer" className="inline-block self-center lg:self-start">
+                  <Button size="md" hierarchy="primary" icon="arrow_right" iconPosition="right">
+                    {t('ctaAccess')}
+                  </Button>
+                </a>
               </div>
 
 

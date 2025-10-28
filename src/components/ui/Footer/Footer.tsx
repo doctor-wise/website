@@ -29,10 +29,10 @@ export function Footer(): React.ReactElement {
 
             <div id="Footer_links" className="flex flex-wrap items-center gap-spacing-4xl w-full md:w-auto">
               {/* Ambassador link - first on desktop, last on mobile */}
-              <Link href="https://airtable.com/appLHbSfKhrt6rgMc/pagEYONy9x3aFkYBv/form" className="inline-flex items-center gap-spacing-sm text-text-md font-semibold text-text-tertiary hover:text-text-tertiary-hover order-last md:order-1">
+              <I18nLink href="/ambassadors" className="inline-flex items-center gap-spacing-sm text-text-md font-semibold text-text-tertiary hover:text-text-tertiary-hover order-last md:order-1">
                 <Icon name="users_plus" size="md" className="text-fg-quaternary" aria-label="users-plus" />
                 <span>{t('ambassador')}</span>
-              </Link>
+              </I18nLink>
 
               {/* Divider visible only on desktop, sits between ambassador and socials */}
               <span className="hidden md:block h-[20px] w-px bg-border-tertiary md:order-2" />

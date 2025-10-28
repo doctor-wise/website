@@ -1,0 +1,2 @@
+export { AmbassadorsDetailedFeatures } from './AmbassadorsDetailedFeatures';
+

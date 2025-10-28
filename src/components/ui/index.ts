@@ -33,3 +33,7 @@ export { Footer } from './Footer';
 export { Pricing } from './Pricing/Pricing';
 export { LanguageSelector } from './LanguageSelector';
 export type { LanguageSelectorProps } from './LanguageSelector';
+export { AmbassadorsHero } from './AmbassadorsHero';
+export { AmbassadorsFeatures } from './AmbassadorsFeatures';
+export { AmbassadorsDetailedFeatures } from './AmbassadorsDetailedFeatures';
+export { AmbassadorsCTA } from './AmbassadorsCTA';

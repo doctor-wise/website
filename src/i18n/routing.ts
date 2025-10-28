@@ -8,6 +8,11 @@ export const routing = defineRouting({
   localePrefix: 'always',
   pathnames: {
     '/': '/',
+    '/ambassadors': {
+      pt: '/ambassadors',
+      en: '/ambassadors',
+      es: '/ambassadors'
+    },
     '/privacy-policy': {
       pt: '/privacy-policy',
       en: '/privacy-policy',

@@ -7,7 +7,6 @@ import { Text } from '@/components/ui/Typography/Text';
 import {useTranslations} from 'next-intl';
 import { PartnerLogos } from '@/components/ui/PartnerLogos';
 import { Button } from '@/components/ui/Button';
-import { Icon } from '@/components/icons';
 
 // Local assets (served from public/images)
 const IPHONE_IMG_MOBILE = '/images/hero_iphone-mock-mobile.png';

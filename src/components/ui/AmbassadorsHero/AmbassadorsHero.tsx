@@ -4,6 +4,7 @@ import React from 'react';
 import Image from 'next/image';
 import { useTranslations } from 'next-intl';
 import { Badge } from '../Badge';
+import { Button } from '../Button';
 
 export function AmbassadorsHero() {
   const t = useTranslations('Ambassadors');
@@ -42,6 +43,18 @@ export function AmbassadorsHero() {
                 <p className="hero-subtitle text-text-tertiary max-w-full lg:max-w-[426px] text-center lg:text-left">
                   {t('heroSubtitleBefore')}<span className="font-bold">{t('heroSubtitleBold')}</span>{t('heroSubtitleAfter')}
                 </p>
+
+                <a
+                  id="hero-primary-cta"
+                  href="https://airtable.com/appLHbSfKhrt6rgMc/pagEYONy9x3aFkYBv/form"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex"
+                >
+                  <Button size="sm" hierarchy="primary" icon="arrow_right" iconPosition="right" className="mt-spacing-md">
+                    {t('ctaButton')}
+                  </Button>
+                </a>
               </div>
             </div>
           </div>

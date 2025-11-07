@@ -3,22 +3,31 @@
 import React from 'react';
 import { Link as I18nLink } from '@/i18n/routing';
 import {useTranslations} from 'next-intl';
-import { Icon } from '@/components/icons';
 import { LogoDefault } from '../Logo/LogoDefault';
 import { Button } from '../Button';
 import { LanguageSelector } from '../LanguageSelector';
+
+type NavbarVariant = 'default' | 'ambassadors';
+
+interface NavbarProps {
+  variant?: NavbarVariant;
+}
 
 /**
  * Pill-style Navbar centered horizontally.
  * - Top of page: fully transparent, no border or shadow
  * - After scroll: white background, subtle border and light shadow
  */
-export function Navbar(): React.ReactElement {
+export function Navbar({ variant = 'default' }: NavbarProps): React.ReactElement {
   const [isScrolled, setIsScrolled] = React.useState(false);
   const t = useTranslations('Navbar');
+  const isAmbassadors = variant === 'ambassadors';
 
   const ctaFull = t('ctaAccess');
   const shortCta = React.useMemo(() => ctaFull.replace(/\s+(grátis|free|gratis)$/i, ''), [ctaFull]);
+  const ambassadorsApplyFull = isAmbassadors ? t('ctaAmbassadorsApply') : ctaFull;
+  const ambassadorsApplyShort = isAmbassadors ? t('ctaAmbassadorsApplyShort') : shortCta;
+  const ambassadorsAreaLabel = isAmbassadors ? t('ctaAmbassadorsArea') : '';
 
   React.useEffect(() => {
     const onScroll = () => {
@@ -42,8 +51,8 @@ export function Navbar(): React.ReactElement {
       <div className="mx-auto w-full max-w-3xl px-spacing-md pt-spacing-xl pb-spacing-none md:px-spacing-xl md:pt-spacing-xl md:pb-spacing-none overflow-x-hidden">
         <div
           id="Navbar"
-          data-name="State=Scroll, Size=Mobile"
-          data-node-id="13375:15929"
+          data-name={isAmbassadors ? 'Navbar - Ambassadors' : 'State=Scroll, Size=Mobile'}
+          data-node-id={isAmbassadors ? '13532:7422' : '13375:15929'}
           className={[
             'flex items-center justify-between',
             'h-16',
@@ -68,15 +77,55 @@ export function Navbar(): React.ReactElement {
           </I18nLink>
 
           {/* Actions */}
-          <div id="Actions" className="flex items-center gap-spacing-md md:gap-spacing-2xl">
+          <div
+            id={isAmbassadors ? 'AmbassadorsActions' : 'Actions'}
+            data-node-id={isAmbassadors ? '13532:7424' : '13375:15932'}
+            className={[
+              'flex items-center',
+              isAmbassadors ? 'gap-spacing-md md:gap-spacing-xl' : 'gap-spacing-md md:gap-spacing-2xl'
+            ].join(' ')}
+          >
             <LanguageSelector />
 
-            <a href="https://doctorwise.app/" target="_blank" rel="noopener noreferrer" className="inline-block">
-              <Button size="sm" hierarchy="primary">
-                <span className="inline-flex items-center gap-[4px] text-text-sm font-semibold">
-                  <span className="md:hidden">{shortCta}</span>
-                  <span className="hidden md:inline">{t('ctaAccess')}</span>
-                  <Icon name="arrow_right" size="sm" className="text-text-white" aria-label="arrow-right" />
+            {isAmbassadors && (
+              <>
+                <div
+                  id="ActionsDivider"
+                  className="hidden h-5 w-px bg-border-tertiary md:block"
+                  aria-hidden="true"
+                  data-node-id="13532:7426"
+                />
+
+                <a
+                  id="AmbassadorAreaButton"
+                  href="https://emb.doctorwise.ai/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hidden md:inline-block"
+                >
+                  <Button size="sm" hierarchy="secondary" icon="line_chart_up_04">
+                    <span className="text-text-sm font-semibold text-text-secondary">{ambassadorsAreaLabel}</span>
+                  </Button>
+                </a>
+              </>
+            )}
+
+            <a
+              id="PrimaryCtaButton"
+              href={isAmbassadors ? 'https://airtable.com/appLHbSfKhrt6rgMc/pagEYONy9x3aFkYBv/form' : 'https://doctorwise.app/'}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block"
+            >
+              <Button
+                size="sm"
+                hierarchy="primary"
+                icon="arrow_right"
+                iconPosition="right"
+              >
+                <span className="inline-flex items-center text-text-sm font-semibold">
+                  <span className="md:hidden">{ambassadorsApplyShort}</span>
+                  <span className="hidden md:inline">{ambassadorsApplyFull}</span>
                 </span>
               </Button>
             </a>

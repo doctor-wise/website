@@ -1,5 +1,11 @@
 {
-  "Navbar": {"blog":"Blog","ctaAccess":"Acessar grátis"},
+  "Navbar": {
+    "blog": "Blog",
+    "ctaAccess": "Acessar grátis",
+    "ctaAmbassadorsApply": "Quero ser embaixador",
+    "ctaAmbassadorsApplyShort": "Cadastrar-se",
+    "ctaAmbassadorsArea": "Área do embaixador"
+  },
   "Hero": {"badge":"Profissionais e acadêmicos da saúde","title":"IA médica baseada<br></br><highlight>em evidências</highlight>","subtitle":"Insights médicos confiáveis e baseados em evidências, projetados especialmente para profissionais e estudantes da área da saúde.","ctaAccess":"Acessar grátis"},
   "Features": {"heading":"Criado por e para<br></br><highlight>profissionais da saúde</highlight>","description":"Diferente de IAs genéricas, a Doctor Wise fornece respostas científicas e validadas, baseadas em fontes confiáveis, para evitar desinformação e garantir decisões seguras.","leftTitle":"Referências Bibliográficas Integradas","leftDesc":"Cada resposta vem com uma lista de referências acadêmicas de fontes selecionadas.","rightTitle":"Gráficos, diagramas e fluxogramas em segundos","rightDesc":"Crie e compartilhe gráficos acadêmicos em segundos.","flowAlt":"Fluxograma gerado","pillAlt":"Pílula de ação do fluxograma"},
   "SocialProof": {"heading":"Quem usa ama<br></br><highlight>e recomenda</highlight>","mauriloAlt":"Foto de Dr. Maurilo Leite Jr.","mauriloName":"Dr. Maurilo Leite Jr.","mauriloTitle":"MD, PhD, UFRJ","mauriloQuote":"Doctorwise é uma ferramenta inovadora e poderosa para médicos, profissionais das ciências da saúde e todos os cientistas interessados em questões de biologia. Estou usando Doctorwise e minha experiência tem sido bastante bem-sucedida para qualquer pergunta relacionada a uma ampla gama de interesses, abrangendo desde a ciência básica até problemas clínicos. Para aqueles no ramo médico e também para a ciência básica, eu recomendo fortemente Doctorwise como uma aplicação rápida, prática e muito eficaz para sua prática diária.","raianneAlt":"Foto de Raianne Montenegro","raianneName":"Raianne Montenegro","raianneTitle":"Graduanda, Afya Paraíba","raianneQuote":"Minha experiência com a Doctor Wise tem sido incrível! Confesso que, inicialmente, tinha receios sobre inteligência artificial, mas a Doctor Wise mudou completamente minha percepção. Agora, essa IA não apenas otimiza meu tempo de estudo, mas também enriquece minha jornada na medicina, proporcionando respostas precisas e confiáveis. Estou impressionada com a eficácia e a praticidade que a Doctor Wise acrescentou à minha rotina."},

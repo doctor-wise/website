@@ -15,10 +15,11 @@ const imgAvatar1 = '/images/Raianne.webp';
 const VIDEO_ISABELA = 'https://dw-media-files-5132.s3.sa-east-1.amazonaws.com/depoimentos-embaixadores/20.%20Isabela%20Polo.mp4';
 const VIDEO_VITORIA = 'https://dw-media-files-5132.s3.sa-east-1.amazonaws.com/depoimentos-embaixadores/9.%20Vit%C3%B3ria%20Magro.mp4';
 const VIDEO_AMANDA = 'https://dw-media-files-5132.s3.sa-east-1.amazonaws.com/depoimentos-embaixadores/15.%20Amanda%20Bochou.mp4';
-const VIDEO_GABI = 'https://dw-media-files-5132.s3.sa-east-1.amazonaws.com/depoimentos-embaixadores/22.%20Gabi%20Caropreso.mp4';
+const VIDEO_JULIO = 'https://dw-media-files-5132.s3.sa-east-1.amazonaws.com/depoimentos-embaixadores/depoimento-julio-abreu.mp4';
+const THUMB_JULIO = '/images/Thumb-Dr Julio.png';
 const VIDEO_JULIANA = 'https://dw-media-files-5132.s3.sa-east-1.amazonaws.com/depoimentos-embaixadores/2.%20Juliana%20Pan%C3%A3o.mp4';
 
-function VideoTile({ src }: { src: string }) {
+function VideoTile({ src, poster }: { src: string; poster?: string }) {
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const [isPlaying, setIsPlaying] = useState(false);
 
@@ -35,7 +36,7 @@ function VideoTile({ src }: { src: string }) {
     if (!v) return;
     try {
       // Seek slightly forward to ensure a non-black first frame and pause to display it
-      if (v.readyState >= 2 && !isPlaying) {
+      if (v.readyState >= 2 && !isPlaying && !poster) {
         v.currentTime = 0.1;
         v.pause();
       }
@@ -52,6 +53,7 @@ function VideoTile({ src }: { src: string }) {
         src={src}
         playsInline
         preload="metadata"
+        poster={poster}
         onLoadedData={handleLoadedData}
         onEnded={() => setIsPlaying(false)}
       />
@@ -104,7 +106,7 @@ export function SocialProof(): React.ReactElement {
           </div>
 
           <div id="video_large_right" className="order-5 col-span-2 aspect-[4/3] lg:aspect-auto lg:[grid-area:1_/_3_/_span_2_/_span_2] border border-border-secondary rounded-5xl relative overflow-hidden">
-            <VideoTile src={VIDEO_GABI} />
+            <VideoTile src={VIDEO_JULIO} poster={THUMB_JULIO} />
           </div>
 
           <div id="video_left_middle" className="order-2 col-span-1 aspect-[2/3] lg:aspect-auto lg:[grid-area:2_/_1] border border-border-secondary rounded-5xl relative overflow-hidden">

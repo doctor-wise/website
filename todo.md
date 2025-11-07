@@ -200,3 +200,28 @@ A aplicação está limpa, otimizada e pronta para desenvolvimento:
 - Tokens usados: `bg-bg-primary`, `border-border-secondary`, `text-text-tertiary`, `text-text-quaternary`, `spacing-6xl/7xl/3xl/xl`.
 - Reutilizados componentes existentes: `LogoDefault`, `Icon` (ícones oficiais). Para redes sociais, placeholders com `youtube` até adicionarmos os ícones oficiais da lib.
 - Inserido globalmente em `src/app/layout.tsx` após `{children}` para aparecer em todas as páginas.
+
+---
+
+## 📌 Review (Social Proof)
+
+- Reapontado vídeo destaque para Julio Abreu com thumb dedicada (`Thumb-Dr Julio` em `public/images`).
+- `VideoTile` agora aceita `poster`, preservando seeks iniciais apenas quando não há thumb customizada.
+- Atualização localizada em `src/components/ui/SocialProof/SocialProof.tsx`, mantendo demais vídeos com o frame inicial.
+
+---
+
+## 📌 Review (Navbar Embaixadores)
+
+- Adicionada variante `ambassadors` no componente `Navbar` para renderizar ações conforme Figma (`13532:7422` desktop e `13286:9910` mobile).
+- Botão secundário (área do embaixador) abre `https://emb.doctorwise.ai/` e fica visível a partir de `md`.
+- CTA primário aponta para o formulário Airtable com cópias responsivas (`messages/{pt,en,es}.json`).
+- Página `ambassadors` atualiza o uso da navbar para a nova variante mantendo tokens utilitários existentes.
+
+---
+
+## 📌 Review (Hero Embaixadores)
+
+- Botão primário do hero segue Figma (`13285:8946`) e leva direto ao formulário Airtable.
+- `Button` reutiliza ícone `arrow_right` e texto `{t('ctaButton')}` para manter traduções existentes.
+- Mantida a pilha de spacing utilitário com alinhamento central/mobile e esquerdo/desktop.

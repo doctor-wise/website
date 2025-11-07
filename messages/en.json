@@ -1,5 +1,11 @@
 {
-  "Navbar": {"blog":"Blog","ctaAccess":"Get started free"},
+  "Navbar": {
+    "blog": "Blog",
+    "ctaAccess": "Get started free",
+    "ctaAmbassadorsApply": "Become an ambassador",
+    "ctaAmbassadorsApplyShort": "Apply",
+    "ctaAmbassadorsArea": "Ambassador area"
+  },
   "Hero": {"badge":"Healthcare professionals and academics","title":"Evidence-based<br></br><highlight>medical AI</highlight>","subtitle":"Reliable, evidence-based medical insights, designed especially for healthcare professionals and students.","ctaAccess":"Get started free"},
   "Features": {"heading":"Built by and for<br></br><highlight>healthcare professionals</highlight>","description":"Unlike generic AIs, Doctor Wise provides scientific and validated answers, based on reliable sources, to avoid misinformation and ensure safe decisions.","leftTitle":"Integrated Bibliographic References","leftDesc":"Every answer comes with a list of academic references from selected sources.","rightTitle":"Charts, diagrams and flowcharts in seconds","rightDesc":"Create and share academic charts in seconds.","flowAlt":"Generated flowchart","pillAlt":"Flowchart action pill"},
   "SocialProof": {"heading":"Users love it<br></br><highlight>and recommend it</highlight>","mauriloAlt":"Photo of Dr. Maurilo Leite Jr.","mauriloName":"Dr. Maurilo Leite Jr.","mauriloTitle":"MD, PhD, UFRJ","mauriloQuote":"Doctorwise is an innovative and powerful tool for physicians, health sciences professionals, and all scientists interested in biology questions. I am using Doctorwise and my experience has been quite successful for any question related to a wide range of interests, spanning from basic science to clinical problems. For those in the medical field and also in basic science, I strongly recommend Doctorwise as a quick, practical and very effective application for your daily practice.","raianneAlt":"Photo of Raianne Montenegro","raianneName":"Raianne Montenegro","raianneTitle":"Undergraduate, Afya Paraíba","raianneQuote":"My experience with Doctor Wise has been amazing! I admit that at first I had reservations about artificial intelligence, but Doctor Wise completely changed my perception. Now, this AI not only optimizes my study time but also enriches my journey in medicine by providing precise and reliable answers. I am impressed by the effectiveness and practicality that Doctor Wise has added to my routine."},

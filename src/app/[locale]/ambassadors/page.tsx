@@ -4,7 +4,7 @@ import { Navbar, AmbassadorsHero, AmbassadorsFeatures, AmbassadorsDetailedFeatur
 export default function AmbassadorsPage() {
   return (
     <main className="bg-bg-primary flex flex-col justify-start overflow-x-hidden">
-      <Navbar />
+      <Navbar variant="ambassadors" />
       <AmbassadorsHero />
       <AmbassadorsFeatures />
       <AmbassadorsDetailedFeatures />

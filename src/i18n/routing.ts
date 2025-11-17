@@ -22,6 +22,11 @@ export const routing = defineRouting({
       pt: '/terms-of-use',
       en: '/terms-of-use',
       es: '/terms-of-use'
+    },
+    '/giveaway-terms': {
+      pt: '/giveaway-terms',
+      en: '/giveaway-terms',
+      es: '/giveaway-terms'
     }
   }
 });
